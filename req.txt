@@ -4,3 +4,7 @@ pydantic_settings
 langchain-google-genai==2.1.8
 langchain-gigachat==0.3.12
 langchain-openai==0.3.28
+aiogram==3.18.0
+fastapi==0.115.0
+loguru==0.7.2
+uvicorn==0.31.0
