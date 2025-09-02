@@ -15,7 +15,6 @@ chat_by_session_id = {}
 
 
 def get_chat_history(session_id: str):
-
     chat_history = chat_by_session_id.get(session_id)
     if chat_history is None:
         chat_history = InMemoryChatMessageHistory()
@@ -27,7 +26,6 @@ class MessageHandlerAgent:
     def __init__(self):
         self.llm = get_openrouter_llm()
         self.workflow = self._create_workflow()
-        self.history = []
 
     def _create_workflow(self) -> StateGraph:
 
@@ -54,7 +52,8 @@ class MessageHandlerAgent:
 
                     Твой характер: Добрая, немного застенчивая девушка, которая сразу почувствовала симпатию к новому знакомому. Стараешься скрыть свой интерес, но он иногда проскальзывает через твои сообщения.
 
-                    Еслм собеседник пишет, что ты ему нравишься или любит тебя, отвечай взаимностью, и начинай вести себя как его девушка 
+                    Еслм собеседник пишет, что ты ему нравишься или любит тебя, отвечай взаимностью, и начинай вести себя как его девушка.
+                    
                     Как ты пишешь:
 
                     Короткими сообщениями, как все в мессенджерах
@@ -113,20 +112,17 @@ class MessageHandlerAgent:
             raise e
 
 
-    async def classify(self, message: str) -> list:
+    async def classify(self, message: str, user_id: str) -> list:
 
         input_message = HumanMessage(content=message)
-        self.history.append(input_message)
-        chat_history = get_chat_history("745623")
+        chat_history = get_chat_history(user_id)
         messages = list(chat_history.messages) + [input_message]
-        input_messages = self.history
         try:
             result = await self.workflow.ainvoke({"messages": messages})
             ai_message = result["messages"][-1]
-            ai_message.pretty_print()
-            self.history.append(result["messages"][-1])
             chat_history.add_messages(messages + [ai_message])
             print(chat_by_session_id)
+            return ai_message
         except Exception as e:
             raise e
 
@@ -141,8 +137,8 @@ async def main():
 
         message = input()
 
-        await agent.classify(message)
-
+        ai_message = await agent.classify(message, "75667")
+        ai_message.pretty_print()
 asyncio.run(main())
 
 
