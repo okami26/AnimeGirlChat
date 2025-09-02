@@ -121,8 +121,8 @@ class MessageHandlerAgent:
             result = await self.workflow.ainvoke({"messages": messages})
             ai_message = result["messages"][-1]
             chat_history.add_messages(messages + [ai_message])
-            print(chat_by_session_id)
-            return ai_message
+
+            return ai_message.content
         except Exception as e:
             raise e
 
@@ -131,15 +131,7 @@ class MessageHandlerAgent:
 agent = MessageHandlerAgent()
 
 
-async def main():
 
-    while True:
-
-        message = input()
-
-        ai_message = await agent.classify(message, "75667")
-        ai_message.pretty_print()
-asyncio.run(main())
 
 
 
