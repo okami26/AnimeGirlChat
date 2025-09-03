@@ -1,9 +1,11 @@
 from redis import Redis
 
+from app.config import settings
+
 redis_client = Redis(
-    host="ai-chat-antonfedorov8765.db-msk0.amvera.tech",
-    port=6379,  # Стандартный порт Redis
-    password="ai-chat-987654321@",
+    host=settings.REDIS_HOST,
+    port=settings.REDIS_PORT,
+    password=settings.REDIS_PASS,
     ssl=True,
     ssl_cert_reqs=None
 )
