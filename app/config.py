@@ -9,6 +9,12 @@ class Settings(BaseSettings):
     OPENROUTER_API_KEY: str
     OPENROUTER_API_KEY2: str
     OPENROUTER_API_KEY3: str
+    REDIS_HOST: str
+    REDIS_PORT: int
+    REDIS_PASS: str
+    BOT_TOKEN: str
+    ADMIN_ID: str
+    BASE_URL: str
 
     model_config = SettingsConfigDict(
         env_file=os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".env")
