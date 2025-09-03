@@ -1,0 +1,9 @@
+/.env
+/.idea/.gitignore
+/.idea/ai_toolkit.xml
+/.idea/AnimeGirl.iml
+/app/log.txt
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/inspectionProfiles/profiles_settings.xml
+/.idea/vcs.xml
