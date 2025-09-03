@@ -128,18 +128,6 @@ class MessageHandlerAgent:
 agent = MessageHandlerAgent()
 
 
-async def main():
-
-    while True:
-
-        message = input()
-
-        ai_message = await agent.classify(message, "098765")
-        print(ai_message)
-
-asyncio.run(main())
-
-
 
 
 
