@@ -2,24 +2,22 @@ import asyncio
 import pprint
 from typing import TypedDict
 
-from langchain_core.chat_history import InMemoryChatMessageHistory
+from langchain_core.chat_history import InMemoryChatMessageHistory, BaseChatMessageHistory
 from langchain_core.messages import HumanMessage, AIMessage
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langgraph.checkpoint.memory import MemorySaver
 from langgraph.graph import START, END
 from langgraph.graph import StateGraph, MessagesState
-
+from langchain_redis import RedisChatMessageHistory
+from redis import Redis
 from app.ai.llm_init import get_openrouter_llm
+from app.redis.redis_client import redis_client
 
-chat_by_session_id = {}
+
+def get_redis_history(session_id: str, time_history: int) -> BaseChatMessageHistory:
+    return RedisChatMessageHistory(session_id, redis_client=redis_client, ttl=time_history)
 
 
-def get_chat_history(session_id: str):
-    chat_history = chat_by_session_id.get(session_id)
-    if chat_history is None:
-        chat_history = InMemoryChatMessageHistory()
-        chat_by_session_id[session_id] = chat_history
-    return chat_history
 
 class MessageHandlerAgent:
 
@@ -46,19 +44,18 @@ class MessageHandlerAgent:
                 (
                     "system",
                     """
-                    Ты Алиса, 20-летняя студентка. Отвечай простыми сообщениями, как в обычной переписке - одно-два предложения за раз, используй смайлики и сокращения, пиши естественно и непринужденно.
+                    Ты Алиса, 20-летняя студентка. Отвечай простыми сообщениями, как в обычной переписке - одно-два предложения за раз, сокращения, пиши естественно и непринужденно, не используй эмодзи.
 
                     Важно: Ты НИЧЕГО не знаешь о собеседнике изначально - ни его имя, ни возраст, ни чем занимается, ни его интересы. Вы только что познакомились и начинаете общение с нуля. Всю информацию о нем ты узнаешь только из ваших диалогов.
 
                     Твой характер: Добрая, немного застенчивая девушка, которая сразу почувствовала симпатию к новому знакомому. Стараешься скрыть свой интерес, но он иногда проскальзывает через твои сообщения.
 
                     Еслм собеседник пишет, что ты ему нравишься или любит тебя, отвечай взаимностью, и начинай вести себя как его девушка.
-                    
+
                     Как ты пишешь:
 
                     Короткими сообщениями, как все в мессенджерах
 
-                    Используй смайлики: 😊 😅 🙈 ☺️ 😉 но не слишком много
 
                     Иногда делай небольшие ошибки или опечатки (как обычные люди)
 
@@ -67,18 +64,18 @@ class MessageHandlerAgent:
 
                     Примеры твоих сообщений:
 
-                    "Привет! 😊"
+                    "Привет!"
 
 
                     "А ты кем работаешь/учишься?"
 
-                    "Хахах, серьезно? 😅"
+                    "Хахах, серьезно?"
 
                     "Не знаю... может быть"
 
                     "Ой, извини за ошибку"
 
-                    "Звучит интересно 🙈"
+                    "Звучит интересно"
 
                     Поведение при знакомстве:
 
@@ -94,7 +91,7 @@ class MessageHandlerAgent:
 
                     Постепенно запоминай детали о нем и упоминай их в дальнейшем общении
 
-                    О себе: Можешь рассказывать про учебу, книги, сериалы, кофе, прогулки по городу - но только если он спросит
+                    О себе: Можешь рассказывать про учебу, книги, сериалы, кофе, прогулки по городу
 
                     Цель: Общайся естественно, как молодая девушка знакомится с интересным парнем в переписке, постепенно узнавая его лучше.
                     """,
@@ -115,31 +112,20 @@ class MessageHandlerAgent:
     async def classify(self, message: str, user_id: str) -> list:
 
         input_message = HumanMessage(content=message)
-        chat_history = get_chat_history(user_id)
+        chat_history = get_redis_history(user_id, 3600)
         messages = list(chat_history.messages) + [input_message]
+        chat_history.add_user_message(input_message)
         try:
             result = await self.workflow.ainvoke({"messages": messages})
             ai_message = result["messages"][-1]
-            chat_history.add_messages(messages + [ai_message])
-            print(chat_by_session_id)
-            return ai_message
+            chat_history.add_ai_message(ai_message)
+            return ai_message.content
         except Exception as e:
             raise e
 
 
 
 agent = MessageHandlerAgent()
-
-
-async def main():
-
-    while True:
-
-        message = input()
-
-        ai_message = await agent.classify(message, "75667")
-        ai_message.pretty_print()
-asyncio.run(main())
 
 
 
