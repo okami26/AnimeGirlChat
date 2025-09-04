@@ -50,16 +50,20 @@ class MessageHandlerAgent:
             raise e
 
 
-    async def classify(self, message: str, user_id: str) -> list:
+    async def classify(self, message: str, user_id: str, status: str) -> list:
 
         input_message = HumanMessage(content=message)
-        chat_history = get_redis_history(user_id, 3600)
-        messages = list(chat_history.messages) + [input_message]
-        chat_history.add_user_message(input_message)
+        if status == "premium":
+            chat_history = get_sql_history(user_id)
+
+        else:
+            chat_history = get_redis_history(user_id, 3600)
+
+        messages = await chat_history.aget_messages() + [input_message]
         try:
             result = await self.workflow.ainvoke({"messages": messages})
             ai_message = result["messages"][-1]
-            chat_history.add_ai_message(ai_message)
+            await chat_history.aadd_messages([input_message, ai_message])
             return ai_message.content
         except Exception as e:
             raise e
