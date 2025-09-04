@@ -1,2 +1,4 @@
 /.env
 /app/log.txt
+/app/test.py
+/.idea/dataSources.xml
