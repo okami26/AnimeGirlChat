@@ -16,7 +16,7 @@ async def cmd_start(message: Message):
 @router.message()
 async def say(message: Message):
 
-    ai_message = await agent.classify(message.text, message.from_user.id)
+    ai_message = await agent.classify(message.text, str(message.from_user.id))
 
     await message.answer(ai_message)
 
