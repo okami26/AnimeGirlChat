@@ -1,0 +1,613 @@
+2025-09-03 at 11:19:41 | INFO | Бот запущен...
+2025-09-03 at 11:26:03 | INFO | Бот остановлен...
+2025-09-03 at 11:26:39 | INFO | Бот запущен...
+2025-09-03 at 11:26:46 | INFO | Получен запрос с вебхука.
+2025-09-03 at 11:26:46 | INFO | Обновление успешно обработано.
+2025-09-03 at 11:27:00 | INFO | Получен запрос с вебхука.
+2025-09-03 at 11:27:03 | INFO | Обновление успешно обработано.
+2025-09-03 at 11:29:09 | INFO | Бот остановлен...
+2025-09-03 at 11:29:15 | INFO | Бот запущен...
+2025-09-03 at 11:29:21 | INFO | Получен запрос с вебхука.
+2025-09-03 at 11:29:21 | INFO | Обновление успешно обработано.
+2025-09-03 at 11:29:37 | INFO | Бот остановлен...
+2025-09-03 at 11:29:42 | INFO | Бот запущен...
+2025-09-03 at 11:29:46 | INFO | Получен запрос с вебхука.
+2025-09-03 at 11:29:47 | INFO | Обновление успешно обработано.
+2025-09-03 at 11:31:44 | INFO | Бот остановлен...
+2025-09-03 at 11:31:50 | INFO | Бот запущен...
+2025-09-03 at 11:31:55 | INFO | Получен запрос с вебхука.
+2025-09-03 at 11:31:55 | INFO | Обновление успешно обработано.
+2025-09-03 at 11:36:23 | INFO | Получен запрос с вебхука.
+2025-09-03 at 11:36:26 | INFO | Обновление успешно обработано.
+2025-09-03 at 11:36:26 | INFO | Бот остановлен...
+2025-09-03 at 11:36:31 | INFO | Бот запущен...
+2025-09-03 at 11:36:37 | INFO | Бот запущен...
+2025-09-03 at 11:36:43 | INFO | Бот запущен...
+2025-09-03 at 11:41:39 | INFO | Бот остановлен...
+2025-09-03 at 11:41:45 | INFO | Бот запущен...
+2025-09-03 at 11:41:50 | INFO | Получен запрос с вебхука.
+2025-09-03 at 11:41:51 | INFO | Обновление успешно обработано.
+2025-09-03 at 11:45:47 | INFO | Бот остановлен...
+2025-09-03 at 11:45:53 | INFO | Бот запущен...
+2025-09-03 at 11:45:56 | INFO | Получен запрос с вебхука.
+2025-09-03 at 11:45:56 | INFO | Обновление успешно обработано.
+2025-09-03 at 11:45:58 | INFO | Получен запрос с вебхука.
+2025-09-03 at 11:45:59 | INFO | Обновление успешно обработано.
+2025-09-03 at 11:47:09 | INFO | Бот остановлен...
+2025-09-03 at 11:47:14 | INFO | Бот запущен...
+2025-09-03 at 11:47:17 | INFO | Получен запрос с вебхука.
+2025-09-03 at 11:47:17 | INFO | Обновление успешно обработано.
+2025-09-03 at 11:47:18 | INFO | Получен запрос с вебхука.
+2025-09-03 at 11:47:18 | INFO | Обновление успешно обработано.
+2025-09-03 at 11:47:20 | INFO | Получен запрос с вебхука.
+2025-09-03 at 11:47:20 | INFO | Обновление успешно обработано.
+2025-09-03 at 11:51:14 | INFO | Бот остановлен...
+2025-09-03 at 11:51:20 | INFO | Бот запущен...
+2025-09-03 at 11:51:27 | INFO | Получен запрос с вебхука.
+2025-09-03 at 11:51:27 | INFO | Обновление успешно обработано.
+2025-09-03 at 11:51:47 | INFO | Бот запущен...
+2025-09-03 at 11:52:05 | INFO | Бот остановлен...
+2025-09-03 at 11:52:15 | INFO | Бот запущен...
+2025-09-03 at 11:52:18 | INFO | Получен запрос с вебхука.
+2025-09-03 at 11:52:19 | INFO | Обновление успешно обработано.
+2025-09-03 at 11:57:11 | INFO | Бот остановлен...
+2025-09-03 at 11:58:54 | INFO | Бот запущен...
+2025-09-03 at 11:59:12 | INFO | Получен запрос с вебхука.
+2025-09-03 at 11:59:13 | INFO | Обновление успешно обработано.
+2025-09-03 at 11:59:14 | INFO | Получен запрос с вебхука.
+2025-09-03 at 11:59:14 | INFO | Обновление успешно обработано.
+2025-09-03 at 12:27:40 | INFO | Получен запрос с вебхука.
+2025-09-03 at 12:27:40 | INFO | Обновление успешно обработано.
+2025-09-03 at 12:27:42 | INFO | Получен запрос с вебхука.
+2025-09-03 at 12:27:42 | INFO | Обновление успешно обработано.
+2025-09-03 at 12:27:57 | INFO | Бот запущен...
+2025-09-03 at 12:28:01 | INFO | Получен запрос с вебхука.
+2025-09-03 at 12:28:02 | INFO | Обновление успешно обработано.
+2025-09-03 at 12:28:03 | INFO | Получен запрос с вебхука.
+2025-09-03 at 12:28:03 | INFO | Обновление успешно обработано.
+2025-09-03 at 12:28:23 | INFO | Получен запрос с вебхука.
+2025-09-03 at 12:28:23 | INFO | Обновление успешно обработано.
+2025-09-03 at 12:28:30 | INFO | Получен запрос с вебхука.
+2025-09-03 at 12:28:30 | ERROR | Ошибка при обработке обновления с вебхука: 2 validation errors for HumanMessage
+content.str
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+content.list[union[str,dict[any,any]]]
+  Input should be a valid list [type=list_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.10/v/list_type
+2025-09-03 at 12:28:43 | INFO | Получен запрос с вебхука.
+2025-09-03 at 12:28:46 | INFO | Обновление успешно обработано.
+2025-09-03 at 12:28:51 | INFO | Получен запрос с вебхука.
+2025-09-03 at 12:28:51 | ERROR | Ошибка при обработке обновления с вебхука: 2 validation errors for HumanMessage
+content.str
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+content.list[union[str,dict[any,any]]]
+  Input should be a valid list [type=list_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.10/v/list_type
+2025-09-03 at 12:29:45 | INFO | Бот остановлен...
+2025-09-03 at 12:29:51 | INFO | Бот запущен...
+2025-09-03 at 12:29:54 | INFO | Получен запрос с вебхука.
+2025-09-03 at 12:29:55 | INFO | Обновление успешно обработано.
+2025-09-03 at 12:29:55 | INFO | Получен запрос с вебхука.
+2025-09-03 at 12:29:56 | INFO | Обновление успешно обработано.
+2025-09-03 at 12:31:24 | INFO | Получен запрос с вебхука.
+2025-09-03 at 12:31:25 | INFO | Обновление успешно обработано.
+2025-09-03 at 12:31:26 | INFO | Получен запрос с вебхука.
+2025-09-03 at 12:31:26 | INFO | Обновление успешно обработано.
+2025-09-03 at 12:32:38 | INFO | Бот остановлен...
+2025-09-03 at 12:32:44 | INFO | Бот запущен...
+2025-09-03 at 12:32:47 | INFO | Получен запрос с вебхука.
+2025-09-03 at 12:32:48 | INFO | Обновление успешно обработано.
+2025-09-03 at 12:33:04 | INFO | Бот остановлен...
+2025-09-03 at 12:33:19 | INFO | Бот запущен...
+2025-09-03 at 12:33:23 | INFO | Получен запрос с вебхука.
+2025-09-03 at 12:33:23 | INFO | Обновление успешно обработано.
+2025-09-03 at 12:33:24 | INFO | Получен запрос с вебхука.
+2025-09-03 at 12:33:25 | INFO | Обновление успешно обработано.
+2025-09-03 at 12:33:40 | INFO | Бот остановлен...
+2025-09-03 at 12:38:58 | INFO | Бот запущен...
+2025-09-03 at 12:38:59 | INFO | Получен запрос с вебхука.
+2025-09-03 at 12:38:59 | INFO | Обновление успешно обработано.
+2025-09-03 at 12:39:03 | INFO | Получен запрос с вебхука.
+2025-09-03 at 12:39:04 | INFO | Обновление успешно обработано.
+2025-09-03 at 12:39:05 | INFO | Получен запрос с вебхука.
+2025-09-03 at 12:39:05 | INFO | Обновление успешно обработано.
+2025-09-03 at 12:40:36 | INFO | Получен запрос с вебхука.
+2025-09-03 at 12:40:37 | INFO | Обновление успешно обработано.
+2025-09-03 at 12:40:39 | INFO | Получен запрос с вебхука.
+2025-09-03 at 12:40:39 | INFO | Обновление успешно обработано.
+2025-09-03 at 12:43:00 | INFO | Бот остановлен...
+2025-09-03 at 12:43:15 | INFO | Бот запущен...
+2025-09-03 at 12:43:19 | INFO | Получен запрос с вебхука.
+2025-09-03 at 12:43:19 | INFO | Обновление успешно обработано.
+2025-09-03 at 12:43:20 | INFO | Получен запрос с вебхука.
+2025-09-03 at 12:43:21 | INFO | Обновление успешно обработано.
+2025-09-03 at 12:44:36 | INFO | Бот остановлен...
+2025-09-03 at 12:44:58 | INFO | Бот запущен...
+2025-09-03 at 12:45:02 | INFO | Получен запрос с вебхука.
+2025-09-03 at 12:45:03 | INFO | Обновление успешно обработано.
+2025-09-03 at 12:45:04 | INFO | Получен запрос с вебхука.
+2025-09-03 at 12:45:04 | INFO | Обновление успешно обработано.
+2025-09-03 at 12:45:13 | INFO | Бот остановлен...
+2025-09-03 at 12:46:29 | INFO | Бот запущен...
+2025-09-03 at 12:46:34 | INFO | Получен запрос с вебхука.
+2025-09-03 at 12:46:34 | INFO | Обновление успешно обработано.
+2025-09-03 at 12:46:36 | INFO | Получен запрос с вебхука.
+2025-09-03 at 12:46:36 | INFO | Обновление успешно обработано.
+2025-09-03 at 12:47:06 | INFO | Бот остановлен...
+2025-09-03 at 12:47:14 | INFO | Бот запущен...
+2025-09-03 at 12:47:15 | INFO | Получен запрос с вебхука.
+2025-09-03 at 12:47:16 | INFO | Обновление успешно обработано.
+2025-09-03 at 12:47:30 | INFO | Получен запрос с вебхука.
+2025-09-03 at 12:47:30 | INFO | Обновление успешно обработано.
+2025-09-03 at 12:47:32 | INFO | Получен запрос с вебхука.
+2025-09-03 at 12:47:33 | INFO | Обновление успешно обработано.
+2025-09-03 at 12:48:29 | INFO | Бот запущен...
+2025-09-03 at 12:48:29 | INFO | Получен запрос с вебхука.
+2025-09-03 at 12:48:30 | INFO | Обновление успешно обработано.
+2025-09-03 at 12:48:30 | INFO | Получен запрос с вебхука.
+2025-09-03 at 12:48:30 | INFO | Обновление успешно обработано.
+2025-09-03 at 12:48:32 | INFO | Получен запрос с вебхука.
+2025-09-03 at 12:48:32 | INFO | Обновление успешно обработано.
+2025-09-03 at 12:49:03 | INFO | Бот остановлен...
+2025-09-03 at 12:49:12 | INFO | Бот запущен...
+2025-09-03 at 12:49:16 | INFO | Получен запрос с вебхука.
+2025-09-03 at 12:49:17 | INFO | Обновление успешно обработано.
+2025-09-03 at 12:52:58 | INFO | Бот остановлен...
+2025-09-03 at 12:56:09 | INFO | Бот запущен...
+2025-09-03 at 12:56:16 | INFO | Получен запрос с вебхука.
+2025-09-03 at 12:56:16 | INFO | Обновление успешно обработано.
+2025-09-03 at 12:56:20 | INFO | Получен запрос с вебхука.
+2025-09-03 at 12:56:20 | INFO | Обновление успешно обработано.
+2025-09-03 at 12:56:35 | INFO | Бот остановлен...
+2025-09-03 at 12:56:41 | INFO | Бот запущен...
+2025-09-03 at 12:56:44 | INFO | Получен запрос с вебхука.
+2025-09-03 at 12:56:44 | INFO | Обновление успешно обработано.
+2025-09-03 at 12:56:45 | INFO | Получен запрос с вебхука.
+2025-09-03 at 12:56:45 | INFO | Обновление успешно обработано.
+2025-09-03 at 13:03:49 | INFO | Бот остановлен...
+2025-09-03 at 13:36:12 | INFO | Бот запущен...
+2025-09-03 at 13:36:17 | INFO | Получен запрос с вебхука.
+2025-09-03 at 13:36:17 | INFO | Обновление успешно обработано.
+2025-09-03 at 13:36:18 | INFO | Получен запрос с вебхука.
+2025-09-03 at 13:36:18 | INFO | Обновление успешно обработано.
+2025-09-03 at 13:40:49 | INFO | Бот остановлен...
+2025-09-03 at 13:47:34 | INFO | Бот запущен...
+2025-09-03 at 13:47:38 | INFO | Получен запрос с вебхука.
+2025-09-03 at 13:47:38 | INFO | Обновление успешно обработано.
+2025-09-03 at 13:47:39 | INFO | Получен запрос с вебхука.
+2025-09-03 at 13:47:39 | ERROR | Ошибка при обработке обновления с вебхука: 4 validation errors for SendMessage
+reply_markup.InlineKeyboardMarkup
+  Input should be a valid dictionary or instance of InlineKeyboardMarkup [type=model_type, input_value=[[InlineKeyboardButton(te...k_game=None, pay=None)]], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.10/v/model_type
+reply_markup.ReplyKeyboardMarkup
+  Input should be a valid dictionary or instance of ReplyKeyboardMarkup [type=model_type, input_value=[[InlineKeyboardButton(te...k_game=None, pay=None)]], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.10/v/model_type
+reply_markup.ReplyKeyboardRemove
+  Input should be a valid dictionary or instance of ReplyKeyboardRemove [type=model_type, input_value=[[InlineKeyboardButton(te...k_game=None, pay=None)]], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.10/v/model_type
+reply_markup.ForceReply
+  Input should be a valid dictionary or instance of ForceReply [type=model_type, input_value=[[InlineKeyboardButton(te...k_game=None, pay=None)]], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.10/v/model_type
+2025-09-03 at 13:48:33 | INFO | Бот запущен...
+2025-09-03 at 13:48:36 | INFO | Получен запрос с вебхука.
+2025-09-03 at 13:48:36 | INFO | Обновление успешно обработано.
+2025-09-03 at 13:48:36 | INFO | Получен запрос с вебхука.
+2025-09-03 at 13:48:37 | INFO | Обновление успешно обработано.
+2025-09-03 at 13:51:16 | INFO | Бот запущен...
+2025-09-03 at 13:51:27 | INFO | Получен запрос с вебхука.
+2025-09-03 at 13:51:27 | INFO | Обновление успешно обработано.
+2025-09-03 at 13:51:28 | INFO | Получен запрос с вебхука.
+2025-09-03 at 13:51:28 | ERROR | Ошибка при обработке обновления с вебхука: 4 validation errors for SendMessage
+reply_markup.InlineKeyboardMarkup
+  Input should be a valid dictionary or instance of InlineKeyboardMarkup [type=model_type, input_value=[[InlineKeyboardButton(te...k_game=None, pay=None)]], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.10/v/model_type
+reply_markup.ReplyKeyboardMarkup
+  Input should be a valid dictionary or instance of ReplyKeyboardMarkup [type=model_type, input_value=[[InlineKeyboardButton(te...k_game=None, pay=None)]], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.10/v/model_type
+reply_markup.ReplyKeyboardRemove
+  Input should be a valid dictionary or instance of ReplyKeyboardRemove [type=model_type, input_value=[[InlineKeyboardButton(te...k_game=None, pay=None)]], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.10/v/model_type
+reply_markup.ForceReply
+  Input should be a valid dictionary or instance of ForceReply [type=model_type, input_value=[[InlineKeyboardButton(te...k_game=None, pay=None)]], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.10/v/model_type
+2025-09-03 at 13:53:43 | INFO | Бот запущен...
+2025-09-03 at 13:53:47 | INFO | Получен запрос с вебхука.
+2025-09-03 at 13:53:47 | INFO | Обновление успешно обработано.
+2025-09-03 at 13:53:48 | INFO | Получен запрос с вебхука.
+2025-09-03 at 13:53:48 | INFO | Обновление успешно обработано.
+2025-09-03 at 13:53:50 | INFO | Получен запрос с вебхука.
+2025-09-03 at 13:53:50 | INFO | Обновление успешно обработано.
+2025-09-03 at 13:53:55 | INFO | Получен запрос с вебхука.
+2025-09-03 at 13:53:59 | INFO | Обновление успешно обработано.
+2025-09-04 at 10:34:58 | INFO | Бот запущен...
+2025-09-04 at 10:35:40 | INFO | Бот остановлен...
+2025-09-04 at 10:35:49 | INFO | Бот запущен...
+2025-09-04 at 10:35:53 | INFO | Получен запрос с вебхука.
+2025-09-04 at 10:35:53 | INFO | Обновление успешно обработано.
+2025-09-04 at 10:35:54 | INFO | Получен запрос с вебхука.
+2025-09-04 at 10:35:55 | INFO | Обновление успешно обработано.
+2025-09-04 at 10:36:08 | INFO | Получен запрос с вебхука.
+2025-09-04 at 10:36:08 | INFO | Обновление успешно обработано.
+2025-09-04 at 10:40:44 | INFO | Бот остановлен...
+2025-09-04 at 10:40:51 | INFO | Бот запущен...
+2025-09-04 at 10:40:56 | INFO | Бот запущен...
+2025-09-04 at 10:45:52 | INFO | Бот запущен...
+2025-09-04 at 10:45:57 | INFO | Получен запрос с вебхука.
+2025-09-04 at 10:45:58 | INFO | Обновление успешно обработано.
+2025-09-04 at 10:45:58 | INFO | Получен запрос с вебхука.
+2025-09-04 at 10:45:59 | INFO | Обновление успешно обработано.
+2025-09-04 at 10:46:00 | INFO | Получен запрос с вебхука.
+2025-09-04 at 10:46:00 | INFO | Обновление успешно обработано.
+2025-09-04 at 10:46:38 | INFO | Бот остановлен...
+2025-09-04 at 10:51:13 | INFO | Бот запущен...
+2025-09-04 at 10:51:18 | INFO | Получен запрос с вебхука.
+2025-09-04 at 10:51:18 | INFO | Обновление успешно обработано.
+2025-09-04 at 10:51:19 | INFO | Получен запрос с вебхука.
+2025-09-04 at 10:51:20 | INFO | Обновление успешно обработано.
+2025-09-04 at 10:51:20 | INFO | Получен запрос с вебхука.
+2025-09-04 at 10:51:20 | INFO | Обновление успешно обработано.
+2025-09-04 at 10:51:23 | INFO | Получен запрос с вебхука.
+2025-09-04 at 10:51:27 | ERROR | Ошибка при обработке обновления с вебхука: Error code: 429 - {'error': {'message': "Rate limit exceeded: limit_rpd/google/gemini-2.5-flash-image-preview/288ba57e-95c8-44b1-886f-9a9521b8c2c6. Daily limit reached for google/gemini-2.5-flash-image-preview:free via Google AI Studio. Credits don't affect this cap. Add your own keys in https://openrouter.ai/settings/integrations to get a boost.", 'code': 429, 'metadata': {'headers': {'X-RateLimit-Limit': '5', 'X-RateLimit-Remaining': '0', 'X-RateLimit-Reset': '1757030400000'}, 'provider_name': None}}, 'user_id': 'user_328jtOv1ThKk3fvpRjaZCs1LmVW'}
+2025-09-04 at 10:51:32 | INFO | Получен запрос с вебхука.
+2025-09-04 at 10:51:35 | ERROR | Ошибка при обработке обновления с вебхука: Error code: 429 - {'error': {'message': "Rate limit exceeded: limit_rpd/google/gemini-2.5-flash-image-preview/288ba57e-95c8-44b1-886f-9a9521b8c2c6. Daily limit reached for google/gemini-2.5-flash-image-preview:free via Google AI Studio. Credits don't affect this cap. Add your own keys in https://openrouter.ai/settings/integrations to get a boost.", 'code': 429, 'metadata': {'headers': {'X-RateLimit-Limit': '5', 'X-RateLimit-Remaining': '0', 'X-RateLimit-Reset': '1757030400000'}, 'provider_name': None}}, 'user_id': 'user_328jtOv1ThKk3fvpRjaZCs1LmVW'}
+2025-09-04 at 10:51:39 | INFO | Получен запрос с вебхука.
+2025-09-04 at 10:51:39 | INFO | Обновление успешно обработано.
+2025-09-04 at 10:51:42 | INFO | Получен запрос с вебхука.
+2025-09-04 at 10:51:46 | ERROR | Ошибка при обработке обновления с вебхука: Error code: 429 - {'error': {'message': "Rate limit exceeded: limit_rpd/google/gemini-2.5-flash-image-preview/288ba57e-95c8-44b1-886f-9a9521b8c2c6. Daily limit reached for google/gemini-2.5-flash-image-preview:free via Google AI Studio. Credits don't affect this cap. Add your own keys in https://openrouter.ai/settings/integrations to get a boost.", 'code': 429, 'metadata': {'headers': {'X-RateLimit-Limit': '5', 'X-RateLimit-Remaining': '0', 'X-RateLimit-Reset': '1757030400000'}, 'provider_name': None}}, 'user_id': 'user_328jtOv1ThKk3fvpRjaZCs1LmVW'}
+2025-09-04 at 10:52:27 | INFO | Бот остановлен...
+2025-09-04 at 10:52:32 | INFO | Бот запущен...
+2025-09-04 at 10:52:34 | INFO | Получен запрос с вебхука.
+2025-09-04 at 10:52:35 | INFO | Обновление успешно обработано.
+2025-09-04 at 10:52:37 | INFO | Получен запрос с вебхука.
+2025-09-04 at 10:52:41 | ERROR | Ошибка при обработке обновления с вебхука: Error code: 429 - {'error': {'message': "Rate limit exceeded: limit_rpd/google/gemini-2.5-flash-image-preview/288ba57e-95c8-44b1-886f-9a9521b8c2c6. Daily limit reached for google/gemini-2.5-flash-image-preview:free via Google AI Studio. Credits don't affect this cap. Add your own keys in https://openrouter.ai/settings/integrations to get a boost.", 'code': 429, 'metadata': {'headers': {'X-RateLimit-Limit': '5', 'X-RateLimit-Remaining': '0', 'X-RateLimit-Reset': '1757030400000'}, 'provider_name': None}}, 'user_id': 'user_328jtOv1ThKk3fvpRjaZCs1LmVW'}
+2025-09-04 at 10:52:41 | INFO | Получен запрос с вебхука.
+2025-09-04 at 10:52:41 | INFO | Обновление успешно обработано.
+2025-09-04 at 10:52:42 | INFO | Получен запрос с вебхука.
+2025-09-04 at 10:52:42 | INFO | Обновление успешно обработано.
+2025-09-04 at 10:52:47 | INFO | Получен запрос с вебхука.
+2025-09-04 at 10:52:51 | ERROR | Ошибка при обработке обновления с вебхука: Error code: 429 - {'error': {'message': "Rate limit exceeded: limit_rpd/google/gemini-2.5-flash-image-preview/288ba57e-95c8-44b1-886f-9a9521b8c2c6. Daily limit reached for google/gemini-2.5-flash-image-preview:free via Google AI Studio. Credits don't affect this cap. Add your own keys in https://openrouter.ai/settings/integrations to get a boost.", 'code': 429, 'metadata': {'headers': {'X-RateLimit-Limit': '5', 'X-RateLimit-Remaining': '0', 'X-RateLimit-Reset': '1757030400000'}, 'provider_name': None}}, 'user_id': 'user_328jtOv1ThKk3fvpRjaZCs1LmVW'}
+2025-09-04 at 11:09:11 | INFO | Бот остановлен...
+2025-09-04 at 11:09:20 | INFO | Бот запущен...
+2025-09-04 at 11:09:25 | INFO | Получен запрос с вебхука.
+2025-09-04 at 11:09:25 | INFO | Обновление успешно обработано.
+2025-09-04 at 11:09:26 | INFO | Получен запрос с вебхука.
+2025-09-04 at 11:09:27 | INFO | Обновление успешно обработано.
+2025-09-04 at 11:09:28 | INFO | Получен запрос с вебхука.
+2025-09-04 at 11:09:28 | INFO | Обновление успешно обработано.
+2025-09-04 at 11:09:57 | INFO | Получен запрос с вебхука.
+2025-09-04 at 11:09:57 | INFO | Обновление успешно обработано.
+2025-09-04 at 11:10:05 | INFO | Бот остановлен...
+2025-09-04 at 11:10:11 | INFO | Бот запущен...
+2025-09-04 at 11:10:14 | INFO | Получен запрос с вебхука.
+2025-09-04 at 11:10:14 | INFO | Обновление успешно обработано.
+2025-09-04 at 11:10:14 | INFO | Получен запрос с вебхука.
+2025-09-04 at 11:10:15 | INFO | Обновление успешно обработано.
+2025-09-04 at 11:10:15 | INFO | Получен запрос с вебхука.
+2025-09-04 at 11:10:15 | INFO | Обновление успешно обработано.
+2025-09-04 at 11:10:44 | INFO | Бот остановлен...
+2025-09-04 at 11:10:51 | INFO | Бот запущен...
+2025-09-04 at 11:10:53 | INFO | Получен запрос с вебхука.
+2025-09-04 at 11:10:53 | INFO | Обновление успешно обработано.
+2025-09-04 at 11:10:54 | INFO | Получен запрос с вебхука.
+2025-09-04 at 11:10:54 | INFO | Обновление успешно обработано.
+2025-09-04 at 11:10:55 | INFO | Получен запрос с вебхука.
+2025-09-04 at 11:10:55 | INFO | Обновление успешно обработано.
+2025-09-04 at 11:12:20 | INFO | Бот остановлен...
+2025-09-04 at 11:12:26 | INFO | Бот запущен...
+2025-09-04 at 11:12:32 | INFO | Получен запрос с вебхука.
+2025-09-04 at 11:12:32 | INFO | Обновление успешно обработано.
+2025-09-04 at 11:12:33 | INFO | Получен запрос с вебхука.
+2025-09-04 at 11:12:33 | INFO | Обновление успешно обработано.
+2025-09-04 at 11:12:34 | INFO | Получен запрос с вебхука.
+2025-09-04 at 11:12:34 | INFO | Обновление успешно обработано.
+2025-09-04 at 11:12:48 | INFO | Бот остановлен...
+2025-09-04 at 11:12:53 | INFO | Бот запущен...
+2025-09-04 at 11:13:25 | INFO | Получен запрос с вебхука.
+2025-09-04 at 11:13:26 | INFO | Обновление успешно обработано.
+2025-09-04 at 11:13:26 | INFO | Бот остановлен...
+2025-09-04 at 11:13:32 | INFO | Бот запущен...
+2025-09-04 at 11:13:32 | INFO | Получен запрос с вебхука.
+2025-09-04 at 11:13:33 | INFO | Обновление успешно обработано.
+2025-09-04 at 11:13:36 | INFO | Получен запрос с вебхука.
+2025-09-04 at 11:13:36 | INFO | Обновление успешно обработано.
+2025-09-04 at 11:14:02 | INFO | Бот остановлен...
+2025-09-04 at 11:14:08 | INFO | Бот запущен...
+2025-09-04 at 11:14:12 | INFO | Получен запрос с вебхука.
+2025-09-04 at 11:14:12 | INFO | Обновление успешно обработано.
+2025-09-04 at 11:14:13 | INFO | Получен запрос с вебхука.
+2025-09-04 at 11:14:13 | INFO | Обновление успешно обработано.
+2025-09-04 at 11:14:13 | INFO | Получен запрос с вебхука.
+2025-09-04 at 11:14:14 | INFO | Обновление успешно обработано.
+2025-09-04 at 11:14:18 | INFO | Получен запрос с вебхука.
+2025-09-04 at 11:14:18 | INFO | Обновление успешно обработано.
+2025-09-04 at 11:14:26 | INFO | Получен запрос с вебхука.
+2025-09-04 at 11:14:30 | ERROR | Ошибка при обработке обновления с вебхука: Error code: 429 - {'error': {'message': "Rate limit exceeded: limit_rpd/google/gemini-2.5-flash-image-preview/288ba57e-95c8-44b1-886f-9a9521b8c2c6. Daily limit reached for google/gemini-2.5-flash-image-preview:free via Google AI Studio. Credits don't affect this cap. Add your own keys in https://openrouter.ai/settings/integrations to get a boost.", 'code': 429, 'metadata': {'headers': {'X-RateLimit-Limit': '5', 'X-RateLimit-Remaining': '0', 'X-RateLimit-Reset': '1757030400000'}, 'provider_name': None}}, 'user_id': 'user_328jtOv1ThKk3fvpRjaZCs1LmVW'}
+2025-09-04 at 11:17:27 | INFO | Бот остановлен...
+2025-09-04 at 11:17:34 | INFO | Бот запущен...
+2025-09-04 at 11:17:38 | INFO | Получен запрос с вебхука.
+2025-09-04 at 11:17:38 | INFO | Обновление успешно обработано.
+2025-09-04 at 11:17:39 | INFO | Получен запрос с вебхука.
+2025-09-04 at 11:17:39 | INFO | Обновление успешно обработано.
+2025-09-04 at 11:17:40 | INFO | Получен запрос с вебхука.
+2025-09-04 at 11:17:40 | INFO | Обновление успешно обработано.
+2025-09-04 at 11:17:43 | INFO | Получен запрос с вебхука.
+2025-09-04 at 11:17:47 | ERROR | Ошибка при обработке обновления с вебхука: Error code: 429 - {'error': {'message': "Rate limit exceeded: limit_rpd/google/gemini-2.5-flash-image-preview/288ba57e-95c8-44b1-886f-9a9521b8c2c6. Daily limit reached for google/gemini-2.5-flash-image-preview:free via Google AI Studio. Credits don't affect this cap. Add your own keys in https://openrouter.ai/settings/integrations to get a boost.", 'code': 429, 'metadata': {'headers': {'X-RateLimit-Limit': '5', 'X-RateLimit-Remaining': '0', 'X-RateLimit-Reset': '1757030400000'}, 'provider_name': None}}, 'user_id': 'user_328jtOv1ThKk3fvpRjaZCs1LmVW'}
+2025-09-04 at 11:19:15 | INFO | Бот остановлен...
+2025-09-04 at 11:19:22 | INFO | Бот запущен...
+2025-09-04 at 11:21:20 | INFO | Бот остановлен...
+2025-09-04 at 11:21:27 | INFO | Бот запущен...
+2025-09-04 at 11:21:29 | INFO | Получен запрос с вебхука.
+2025-09-04 at 11:21:29 | INFO | Обновление успешно обработано.
+2025-09-04 at 11:21:30 | INFO | Получен запрос с вебхука.
+2025-09-04 at 11:21:30 | INFO | Обновление успешно обработано.
+2025-09-04 at 11:21:30 | INFO | Получен запрос с вебхука.
+2025-09-04 at 11:21:31 | INFO | Обновление успешно обработано.
+2025-09-04 at 11:21:32 | INFO | Получен запрос с вебхука.
+2025-09-04 at 11:21:32 | INFO | Обновление успешно обработано.
+2025-09-04 at 11:21:44 | INFO | Получен запрос с вебхука.
+2025-09-04 at 11:21:44 | INFO | Обновление успешно обработано.
+2025-09-04 at 11:26:22 | INFO | Бот остановлен...
+2025-09-04 at 11:26:28 | INFO | Бот запущен...
+2025-09-04 at 11:30:47 | INFO | Бот остановлен...
+2025-09-04 at 11:30:53 | INFO | Бот запущен...
+2025-09-04 at 11:35:48 | INFO | Бот остановлен...
+2025-09-04 at 11:35:54 | INFO | Бот запущен...
+2025-09-04 at 11:40:50 | INFO | Бот остановлен...
+2025-09-04 at 11:40:56 | INFO | Бот запущен...
+2025-09-04 at 11:41:21 | INFO | Бот запущен...
+2025-09-04 at 12:07:14 | INFO | Бот запущен...
+2025-09-04 at 12:07:19 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:07:19 | INFO | Обновление успешно обработано.
+2025-09-04 at 12:07:20 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:07:21 | INFO | Обновление успешно обработано.
+2025-09-04 at 12:07:21 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:07:22 | INFO | Обновление успешно обработано.
+2025-09-04 at 12:07:25 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:07:25 | INFO | Обновление успешно обработано.
+2025-09-04 at 12:07:29 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:07:29 | ERROR | Ошибка при обработке обновления с вебхука: 2 validation errors for SendMessage
+parse_mode.str
+  Input should be a valid string [type=string_type, input_value=[[InlineKeyboardButton(te...k_game=None, pay=None)]], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+parse_mode.is-instance[Default]
+  Input should be an instance of Default [type=is_instance_of, input_value=[[InlineKeyboardButton(te...k_game=None, pay=None)]], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.10/v/is_instance_of
+2025-09-04 at 12:07:35 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:07:39 | ERROR | Ошибка при обработке обновления с вебхука: Error code: 429 - {'error': {'message': "Rate limit exceeded: limit_rpd/google/gemini-2.5-flash-image-preview/288ba57e-95c8-44b1-886f-9a9521b8c2c6. Daily limit reached for google/gemini-2.5-flash-image-preview:free via Google AI Studio. Credits don't affect this cap. Add your own keys in https://openrouter.ai/settings/integrations to get a boost.", 'code': 429, 'metadata': {'headers': {'X-RateLimit-Limit': '5', 'X-RateLimit-Remaining': '0', 'X-RateLimit-Reset': '1757030400000'}, 'provider_name': None}}, 'user_id': 'user_328jtOv1ThKk3fvpRjaZCs1LmVW'}
+2025-09-04 at 12:09:14 | INFO | Бот запущен...
+2025-09-04 at 12:09:17 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:09:18 | INFO | Обновление успешно обработано.
+2025-09-04 at 12:09:19 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:09:19 | INFO | Обновление успешно обработано.
+2025-09-04 at 12:09:20 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:09:20 | INFO | Обновление успешно обработано.
+2025-09-04 at 12:09:23 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:09:23 | INFO | Обновление успешно обработано.
+2025-09-04 at 12:09:26 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:09:26 | ERROR | Ошибка при обработке обновления с вебхука: 4 validation errors for SendMessage
+reply_markup.InlineKeyboardMarkup
+  Input should be a valid dictionary or instance of InlineKeyboardMarkup [type=model_type, input_value=[[InlineKeyboardButton(te...k_game=None, pay=None)]], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.10/v/model_type
+reply_markup.ReplyKeyboardMarkup
+  Input should be a valid dictionary or instance of ReplyKeyboardMarkup [type=model_type, input_value=[[InlineKeyboardButton(te...k_game=None, pay=None)]], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.10/v/model_type
+reply_markup.ReplyKeyboardRemove
+  Input should be a valid dictionary or instance of ReplyKeyboardRemove [type=model_type, input_value=[[InlineKeyboardButton(te...k_game=None, pay=None)]], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.10/v/model_type
+reply_markup.ForceReply
+  Input should be a valid dictionary or instance of ForceReply [type=model_type, input_value=[[InlineKeyboardButton(te...k_game=None, pay=None)]], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.10/v/model_type
+2025-09-04 at 12:14:18 | INFO | Бот запущен...
+2025-09-04 at 12:14:26 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:14:26 | INFO | Обновление успешно обработано.
+2025-09-04 at 12:14:27 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:14:27 | INFO | Обновление успешно обработано.
+2025-09-04 at 12:14:28 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:14:28 | INFO | Обновление успешно обработано.
+2025-09-04 at 12:14:31 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:14:31 | INFO | Обновление успешно обработано.
+2025-09-04 at 12:14:33 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:14:34 | INFO | Обновление успешно обработано.
+2025-09-04 at 12:14:36 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:14:36 | INFO | Обновление успешно обработано.
+2025-09-04 at 12:14:40 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:14:40 | INFO | Обновление успешно обработано.
+2025-09-04 at 12:15:20 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:15:20 | INFO | Обновление успешно обработано.
+2025-09-04 at 12:16:11 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:16:11 | INFO | Обновление успешно обработано.
+2025-09-04 at 12:16:12 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:16:12 | INFO | Обновление успешно обработано.
+2025-09-04 at 12:16:13 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:16:13 | INFO | Обновление успешно обработано.
+2025-09-04 at 12:16:15 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:16:19 | ERROR | Ошибка при обработке обновления с вебхука: Error code: 429 - {'error': {'message': "Rate limit exceeded: limit_rpd/google/gemini-2.5-flash-image-preview/288ba57e-95c8-44b1-886f-9a9521b8c2c6. Daily limit reached for google/gemini-2.5-flash-image-preview:free via Google AI Studio. Credits don't affect this cap. Add your own keys in https://openrouter.ai/settings/integrations to get a boost.", 'code': 429, 'metadata': {'headers': {'X-RateLimit-Limit': '5', 'X-RateLimit-Remaining': '0', 'X-RateLimit-Reset': '1757030400000'}, 'provider_name': None}}, 'user_id': 'user_328jtOv1ThKk3fvpRjaZCs1LmVW'}
+2025-09-04 at 12:16:44 | INFO | Бот запущен...
+2025-09-04 at 12:16:48 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:16:48 | INFO | Обновление успешно обработано.
+2025-09-04 at 12:16:49 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:16:49 | INFO | Обновление успешно обработано.
+2025-09-04 at 12:16:50 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:16:50 | INFO | Обновление успешно обработано.
+2025-09-04 at 12:16:54 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:16:54 | INFO | Обновление успешно обработано.
+2025-09-04 at 12:16:55 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:16:55 | INFO | Обновление успешно обработано.
+2025-09-04 at 12:16:57 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:16:57 | INFO | Обновление успешно обработано.
+2025-09-04 at 12:16:59 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:16:59 | INFO | Обновление успешно обработано.
+2025-09-04 at 12:17:52 | INFO | Бот запущен...
+2025-09-04 at 12:17:55 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:17:55 | INFO | Обновление успешно обработано.
+2025-09-04 at 12:17:56 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:17:56 | INFO | Обновление успешно обработано.
+2025-09-04 at 12:17:57 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:17:57 | INFO | Обновление успешно обработано.
+2025-09-04 at 12:18:03 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:18:03 | INFO | Обновление успешно обработано.
+2025-09-04 at 12:18:04 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:18:05 | INFO | Обновление успешно обработано.
+2025-09-04 at 12:18:06 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:18:07 | INFO | Обновление успешно обработано.
+2025-09-04 at 12:18:46 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:18:46 | INFO | Обновление успешно обработано.
+2025-09-04 at 12:18:47 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:18:47 | INFO | Обновление успешно обработано.
+2025-09-04 at 12:18:48 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:18:48 | INFO | Обновление успешно обработано.
+2025-09-04 at 12:18:50 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:18:54 | ERROR | Ошибка при обработке обновления с вебхука: Error code: 429 - {'error': {'message': "Rate limit exceeded: limit_rpd/google/gemini-2.5-flash-image-preview/288ba57e-95c8-44b1-886f-9a9521b8c2c6. Daily limit reached for google/gemini-2.5-flash-image-preview:free via Google AI Studio. Credits don't affect this cap. Add your own keys in https://openrouter.ai/settings/integrations to get a boost.", 'code': 429, 'metadata': {'headers': {'X-RateLimit-Limit': '5', 'X-RateLimit-Remaining': '0', 'X-RateLimit-Reset': '1757030400000'}, 'provider_name': None}}, 'user_id': 'user_328jtOv1ThKk3fvpRjaZCs1LmVW'}
+2025-09-04 at 12:19:20 | INFO | Бот запущен...
+2025-09-04 at 12:19:23 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:19:23 | INFO | Обновление успешно обработано.
+2025-09-04 at 12:19:24 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:19:24 | INFO | Обновление успешно обработано.
+2025-09-04 at 12:19:25 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:19:25 | INFO | Обновление успешно обработано.
+2025-09-04 at 12:19:27 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:19:31 | ERROR | Ошибка при обработке обновления с вебхука: Error code: 429 - {'error': {'message': "Rate limit exceeded: limit_rpd/google/gemini-2.5-flash-image-preview/288ba57e-95c8-44b1-886f-9a9521b8c2c6. Daily limit reached for google/gemini-2.5-flash-image-preview:free via Google AI Studio. Credits don't affect this cap. Add your own keys in https://openrouter.ai/settings/integrations to get a boost.", 'code': 429, 'metadata': {'headers': {'X-RateLimit-Limit': '5', 'X-RateLimit-Remaining': '0', 'X-RateLimit-Reset': '1757030400000'}, 'provider_name': None}}, 'user_id': 'user_328jtOv1ThKk3fvpRjaZCs1LmVW'}
+2025-09-04 at 12:19:35 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:19:35 | INFO | Обновление успешно обработано.
+2025-09-04 at 12:19:39 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:19:39 | INFO | Обновление успешно обработано.
+2025-09-04 at 12:19:41 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:19:41 | INFO | Обновление успешно обработано.
+2025-09-04 at 12:20:42 | INFO | Бот запущен...
+2025-09-04 at 12:20:44 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:20:45 | INFO | Обновление успешно обработано.
+2025-09-04 at 12:23:31 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:23:32 | INFO | Обновление успешно обработано.
+2025-09-04 at 12:23:33 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:23:33 | INFO | Обновление успешно обработано.
+2025-09-04 at 12:23:37 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:23:41 | ERROR | Ошибка при обработке обновления с вебхука: Error code: 429 - {'error': {'message': "Rate limit exceeded: limit_rpd/google/gemini-2.5-flash-image-preview/288ba57e-95c8-44b1-886f-9a9521b8c2c6. Daily limit reached for google/gemini-2.5-flash-image-preview:free via Google AI Studio. Credits don't affect this cap. Add your own keys in https://openrouter.ai/settings/integrations to get a boost.", 'code': 429, 'metadata': {'headers': {'X-RateLimit-Limit': '5', 'X-RateLimit-Remaining': '0', 'X-RateLimit-Reset': '1757030400000'}, 'provider_name': None}}, 'user_id': 'user_328jtOv1ThKk3fvpRjaZCs1LmVW'}
+2025-09-04 at 12:23:46 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:23:47 | INFO | Обновление успешно обработано.
+2025-09-04 at 12:23:49 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:23:49 | INFO | Обновление успешно обработано.
+2025-09-04 at 12:23:53 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:23:53 | INFO | Обновление успешно обработано.
+2025-09-04 at 12:23:54 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:23:54 | INFO | Обновление успешно обработано.
+2025-09-04 at 12:23:56 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:23:56 | INFO | Обновление успешно обработано.
+2025-09-04 at 12:34:34 | INFO | Бот запущен...
+2025-09-04 at 12:34:40 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:34:40 | INFO | Обновление успешно обработано.
+2025-09-04 at 12:34:41 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:34:41 | INFO | Обновление успешно обработано.
+2025-09-04 at 12:34:42 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:34:42 | INFO | Обновление успешно обработано.
+2025-09-04 at 12:34:45 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:34:49 | ERROR | Ошибка при обработке обновления с вебхука: Error code: 429 - {'error': {'message': "Rate limit exceeded: limit_rpd/google/gemini-2.5-flash-image-preview/288ba57e-95c8-44b1-886f-9a9521b8c2c6. Daily limit reached for google/gemini-2.5-flash-image-preview:free via Google AI Studio. Credits don't affect this cap. Add your own keys in https://openrouter.ai/settings/integrations to get a boost.", 'code': 429, 'metadata': {'headers': {'X-RateLimit-Limit': '5', 'X-RateLimit-Remaining': '0', 'X-RateLimit-Reset': '1757030400000'}, 'provider_name': None}}, 'user_id': 'user_328jtOv1ThKk3fvpRjaZCs1LmVW'}
+2025-09-04 at 12:34:56 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:35:00 | ERROR | Ошибка при обработке обновления с вебхука: Error code: 429 - {'error': {'message': "Rate limit exceeded: limit_rpd/google/gemini-2.5-flash-image-preview/288ba57e-95c8-44b1-886f-9a9521b8c2c6. Daily limit reached for google/gemini-2.5-flash-image-preview:free via Google AI Studio. Credits don't affect this cap. Add your own keys in https://openrouter.ai/settings/integrations to get a boost.", 'code': 429, 'metadata': {'headers': {'X-RateLimit-Limit': '5', 'X-RateLimit-Remaining': '0', 'X-RateLimit-Reset': '1757030400000'}, 'provider_name': None}}, 'user_id': 'user_328jtOv1ThKk3fvpRjaZCs1LmVW'}
+2025-09-04 at 12:35:01 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:35:01 | INFO | Обновление успешно обработано.
+2025-09-04 at 12:35:07 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:35:07 | INFO | Обновление успешно обработано.
+2025-09-04 at 12:36:45 | INFO | Бот запущен...
+2025-09-04 at 12:36:48 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:36:48 | INFO | Обновление успешно обработано.
+2025-09-04 at 12:36:49 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:36:49 | INFO | Обновление успешно обработано.
+2025-09-04 at 12:36:50 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:36:50 | INFO | Обновление успешно обработано.
+2025-09-04 at 12:36:52 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:36:52 | INFO | Обновление успешно обработано.
+2025-09-04 at 12:36:55 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:36:56 | INFO | Обновление успешно обработано.
+2025-09-04 at 12:36:57 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:36:58 | INFO | Обновление успешно обработано.
+2025-09-04 at 12:37:02 | INFO | Получен запрос с вебхука.
+2025-09-04 at 12:37:06 | ERROR | Ошибка при обработке обновления с вебхука: Error code: 429 - {'error': {'message': "Rate limit exceeded: limit_rpd/google/gemini-2.5-flash-image-preview/288ba57e-95c8-44b1-886f-9a9521b8c2c6. Daily limit reached for google/gemini-2.5-flash-image-preview:free via Google AI Studio. Credits don't affect this cap. Add your own keys in https://openrouter.ai/settings/integrations to get a boost.", 'code': 429, 'metadata': {'headers': {'X-RateLimit-Limit': '5', 'X-RateLimit-Remaining': '0', 'X-RateLimit-Reset': '1757030400000'}, 'provider_name': None}}, 'user_id': 'user_328jtOv1ThKk3fvpRjaZCs1LmVW'}
+2025-09-04 at 12:38:29 | INFO | Бот запущен...
+2025-09-05 at 11:40:55 | INFO | Бот запущен...
+2025-09-05 at 11:42:07 | INFO | Бот остановлен...
+2025-09-05 at 11:42:17 | INFO | Бот запущен...
+2025-09-05 at 11:42:54 | INFO | Получен запрос с вебхука.
+2025-09-05 at 11:42:55 | INFO | Обновление успешно обработано.
+2025-09-05 at 11:42:55 | INFO | Получен запрос с вебхука.
+2025-09-05 at 11:42:56 | INFO | Обновление успешно обработано.
+2025-09-05 at 11:42:57 | INFO | Получен запрос с вебхука.
+2025-09-05 at 11:42:57 | INFO | Обновление успешно обработано.
+2025-09-05 at 11:43:02 | INFO | Получен запрос с вебхука.
+2025-09-05 at 11:43:02 | INFO | Обновление успешно обработано.
+2025-09-05 at 11:43:06 | INFO | Получен запрос с вебхука.
+2025-09-05 at 11:43:06 | INFO | Обновление успешно обработано.
+2025-09-05 at 11:43:08 | INFO | Получен запрос с вебхука.
+2025-09-05 at 11:43:09 | INFO | Обновление успешно обработано.
+2025-09-05 at 11:43:14 | INFO | Получен запрос с вебхука.
+2025-09-05 at 11:43:15 | ERROR | Ошибка при обработке обновления с вебхука: Error code: 404 - {'error': {'message': 'No endpoints found for google/gemini-2.5-flash-image-preview:free.', 'code': 404}, 'user_id': 'user_328jtOv1ThKk3fvpRjaZCs1LmVW'}
+2025-09-05 at 12:09:57 | INFO | Получен запрос с вебхука.
+2025-09-05 at 12:09:58 | ERROR | Ошибка при обработке обновления с вебхука: Error code: 404 - {'error': {'message': 'No endpoints found for google/gemini-2.5-flash-image-preview:free.', 'code': 404}, 'user_id': 'user_328jtOv1ThKk3fvpRjaZCs1LmVW'}
+2025-09-05 at 12:18:22 | INFO | Получен запрос с вебхука.
+2025-09-05 at 12:18:22 | INFO | Обновление успешно обработано.
+2025-09-05 at 12:18:25 | INFO | Получен запрос с вебхука.
+2025-09-05 at 12:18:25 | INFO | Обновление успешно обработано.
+2025-09-05 at 12:18:34 | INFO | Получен запрос с вебхука.
+2025-09-05 at 12:18:35 | INFO | Обновление успешно обработано.
+2025-09-05 at 12:18:36 | INFO | Получен запрос с вебхука.
+2025-09-05 at 12:18:37 | INFO | Обновление успешно обработано.
+2025-09-05 at 12:18:38 | INFO | Получен запрос с вебхука.
+2025-09-05 at 12:18:39 | INFO | Обновление успешно обработано.
+2025-09-05 at 12:18:49 | INFO | Получен запрос с вебхука.
+2025-09-05 at 12:18:49 | INFO | Обновление успешно обработано.
+2025-09-05 at 12:18:52 | INFO | Получен запрос с вебхука.
+2025-09-05 at 12:18:53 | INFO | Обновление успешно обработано.
+2025-09-05 at 12:18:59 | INFO | Получен запрос с вебхука.
+2025-09-05 at 12:18:59 | INFO | Обновление успешно обработано.
+2025-09-05 at 12:19:01 | INFO | Получен запрос с вебхука.
+2025-09-05 at 12:19:01 | INFO | Обновление успешно обработано.
+2025-09-05 at 12:19:05 | INFO | Получен запрос с вебхука.
+2025-09-05 at 12:19:06 | ERROR | Ошибка при обработке обновления с вебхука: Error code: 404 - {'error': {'message': 'No endpoints found for google/gemini-2.5-flash-image-preview:free.', 'code': 404}, 'user_id': 'user_328jtOv1ThKk3fvpRjaZCs1LmVW'}
+2025-09-05 at 12:19:46 | INFO | Получен запрос с вебхука.
+2025-09-05 at 12:19:47 | INFO | Обновление успешно обработано.
+2025-09-05 at 12:20:41 | INFO | Бот остановлен...
+2025-09-05 at 12:21:06 | INFO | Бот запущен...
+2025-09-05 at 12:21:15 | INFO | Получен запрос с вебхука.
+2025-09-05 at 12:21:15 | INFO | Обновление успешно обработано.
+2025-09-05 at 12:21:16 | INFO | Получен запрос с вебхука.
+2025-09-05 at 12:21:16 | INFO | Обновление успешно обработано.
+2025-09-05 at 12:21:18 | INFO | Получен запрос с вебхука.
+2025-09-05 at 12:21:18 | INFO | Обновление успешно обработано.
+2025-09-05 at 12:21:21 | INFO | Получен запрос с вебхука.
+2025-09-05 at 12:21:21 | INFO | Обновление успешно обработано.
+2025-09-05 at 12:21:22 | INFO | Получен запрос с вебхука.
+2025-09-05 at 12:21:23 | INFO | Обновление успешно обработано.
+2025-09-05 at 12:21:24 | INFO | Получен запрос с вебхука.
+2025-09-05 at 12:21:24 | INFO | Обновление успешно обработано.
+2025-09-05 at 12:21:32 | INFO | Получен запрос с вебхука.
+2025-09-05 at 12:21:32 | ERROR | Ошибка при обработке обновления с вебхука: Error code: 404 - {'error': {'message': 'No endpoints found for google/gemini-2.5-flash-image-preview:free.', 'code': 404}, 'user_id': 'user_328jtOv1ThKk3fvpRjaZCs1LmVW'}
+2025-09-05 at 12:22:36 | INFO | Получен запрос с вебхука.
+2025-09-05 at 12:22:37 | INFO | Обновление успешно обработано.
+2025-09-05 at 12:22:38 | INFO | Получен запрос с вебхука.
+2025-09-05 at 12:22:38 | INFO | Обновление успешно обработано.
+2025-09-05 at 12:22:39 | INFO | Получен запрос с вебхука.
+2025-09-05 at 12:22:40 | INFO | Обновление успешно обработано.
+2025-09-05 at 12:22:43 | INFO | Получен запрос с вебхука.
+2025-09-05 at 12:22:43 | INFO | Обновление успешно обработано.
+2025-09-05 at 12:22:44 | INFO | Получен запрос с вебхука.
+2025-09-05 at 12:22:45 | INFO | Обновление успешно обработано.
+2025-09-05 at 12:22:46 | INFO | Получен запрос с вебхука.
+2025-09-05 at 12:22:47 | INFO | Обновление успешно обработано.
+2025-09-05 at 12:22:53 | INFO | Получен запрос с вебхука.
+2025-09-05 at 12:22:54 | ERROR | Ошибка при обработке обновления с вебхука: Error code: 404 - {'error': {'message': 'No endpoints found for google/gemini-2.5-flash-image-preview:free.', 'code': 404}, 'user_id': 'user_328jtOv1ThKk3fvpRjaZCs1LmVW'}
+2025-09-05 at 12:24:22 | INFO | Получен запрос с вебхука.
+2025-09-05 at 12:24:23 | INFO | Обновление успешно обработано.
+2025-09-05 at 12:24:24 | INFO | Получен запрос с вебхука.
+2025-09-05 at 12:24:24 | INFO | Обновление успешно обработано.
+2025-09-05 at 12:24:25 | INFO | Получен запрос с вебхука.
+2025-09-05 at 12:24:25 | INFO | Обновление успешно обработано.
+2025-09-05 at 12:24:28 | INFO | Получен запрос с вебхука.
+2025-09-05 at 12:24:28 | INFO | Обновление успешно обработано.
+2025-09-05 at 12:24:31 | INFO | Получен запрос с вебхука.
+2025-09-05 at 12:24:31 | INFO | Обновление успешно обработано.
+2025-09-05 at 12:24:33 | INFO | Получен запрос с вебхука.
+2025-09-05 at 12:24:33 | INFO | Обновление успешно обработано.
+2025-09-05 at 12:24:36 | INFO | Получен запрос с вебхука.
+2025-09-05 at 12:24:37 | ERROR | Ошибка при обработке обновления с вебхука: Error code: 404 - {'error': {'message': 'No endpoints found for google/gemini-2.5-flash-image-preview:free.', 'code': 404}, 'user_id': 'user_328jtOv1ThKk3fvpRjaZCs1LmVW'}
+2025-09-05 at 12:27:44 | INFO | Бот остановлен...

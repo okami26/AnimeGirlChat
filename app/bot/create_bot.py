@@ -6,7 +6,8 @@ from aiogram.types import BotCommand, BotCommandScopeDefault
 
 
 
-from app.bot.user.router import router as user_router
+from app.bot.handlers.start import router as user_router
+from app.bot.utils.registration import registration_router
 from app.config import settings
 
 
@@ -21,6 +22,7 @@ async def set_commands():
 async def start_bot():
     await set_commands()
 
+    dp.include_router(registration_router)
     dp.include_router(user_router)
 
     await bot.set_webhook(settings.get_webhook)
