@@ -1,25 +1,41 @@
-export interface MessageRequest {
-  message: string;
-  user_status: "free" | "premium";
+import WebApp from '@twa-dev/sdk'
+
+export interface UserRequest {
+  id: number
+  username: string
+  status: 'free' | 'premium'
 }
 
 export interface MessageResponse {
-  message: string;       // ответ ИИ
-  audio_base64: string;  // аудио в base64
+  message: string
+  audio_base64: string
 }
 
-export async function sendMessage(
-  id: string,
-  payload: MessageRequest
-): Promise<MessageResponse> {
-  const base = "https://57d601e3c66c.ngrok-free.app"; // если есть общий BASE
-  const res = await fetch(`${base}/api/messages/50712?message=&user_status=premium`, {
-    method: "POST",
-  });
+export async function sendMessage(message: string): Promise<MessageResponse> {
+  const base = 'https://d38c98ee6731.ngrok-free.app'
 
-  if (!res.ok) {
-    throw new Error(`Ошибка запроса: ${res.status}`);
+  const tgUser = WebApp.initDataUnsafe?.user
+  if (!tgUser?.id) {
+    throw new Error('Не удалось получить Telegram ID. Откройте приложение внутри Telegram.')
   }
 
-  return res.json() as Promise<MessageResponse>;
+  const body: UserRequest = {
+    id: tgUser.id,
+    username: tgUser.username ?? '',  // всегда строка
+    status: 'free',                   // или своя логика
+  }
+
+  const res = await fetch(`${base}/api/users`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body),
+  })
+
+  if (!res.ok) {
+    // полезно вывести тело ошибки от FastAPI с описанием 422
+    const err = await res.text().catch(() => '')
+    throw new Error(`Ошибка запроса: ${res.status} ${err}`)
+  }
+
+  return res.json() as Promise<MessageResponse>
 }

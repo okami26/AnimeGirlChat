@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+html,
+body,
+#app {
+  height: 100%;
+  margin: 0;
+  background-color: #000;
+  color: #fff;
+}
+
+button,
+input,
+textarea {
+  background-color: #111;
+  color: #fff;
+  border: 1px solid #333;
+}
+
+.bottom-nav a {
+  color: #aaa;
+  transition: color 0.3s ease;
+}
+
+.bottom-nav a:hover {
+  color: #fff;
+}
+
+.bottom-nav .active-link {
+  color: #ffffff;
+}

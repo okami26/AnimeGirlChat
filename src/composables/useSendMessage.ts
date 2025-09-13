@@ -7,14 +7,11 @@ export function useSendMessage() {
   const error = ref<string | null>(null);
   const lastResponse = ref<MessageResponse | null>(null);
 
-  async function send(text: string, userStatus: "free" | "premium" = "premium") {
+  async function send(text: string) {
     loading.value = true;
     error.value = null;
     try {
-      const res = await sendMessage("56789", {
-        message: text,
-        user_status: userStatus,
-      });
+      const res = await sendMessage(text);
       lastResponse.value = res;
 
       if (res.audio_base64) {
