@@ -6,12 +6,15 @@ from aiogram.types import Update
 from fastapi import FastAPI, Request
 from loguru import logger
 
+from app.api.router import router
+from .db.create_db import create_users_table
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     logger.info("Бот запущен...")
     await start_bot()
+    await create_users_table()
     yield
     logger.info("Бот остановлен...")
     await stop_bot()
@@ -26,6 +29,7 @@ app.add_middleware(
     allow_headers=["*"]
 )
 
+app.include_router(router=router)
 @app.post("/webhook")
 async def webhook(request: Request) -> None:
     logger.info("Получен запрос с вебхука.")
