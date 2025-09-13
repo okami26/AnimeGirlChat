@@ -5,6 +5,7 @@ from langgraph.graph import START, END
 from langgraph.graph import StateGraph, MessagesState
 from langchain_redis import RedisChatMessageHistory
 from langchain_community.chat_message_histories import SQLChatMessageHistory
+from loguru import logger
 
 from app.ai.llm_init import get_openrouter_llm
 from app.db.db import async_engine
@@ -16,7 +17,7 @@ def get_redis_history(session_id: str, time_history: int) -> BaseChatMessageHist
 
 def get_sql_history(session_id: str) -> BaseChatMessageHistory:
     return SQLChatMessageHistory(
-        session_id=session_id, connection=async_engine,
+        session_id=session_id, connection=async_engine, async_mode=True
     )
 
 class MessageHandlerAgent:
@@ -39,7 +40,7 @@ class MessageHandlerAgent:
 
     async def _call_llm(self, state: MessagesState):
 
-        prompt_template = prompt_template_nora
+        prompt_template = prompt_template_alice
 
 
         try:
@@ -53,6 +54,7 @@ class MessageHandlerAgent:
     async def classify(self, message: str, user_id: str, status: str) -> list:
 
         input_message = HumanMessage(content=message)
+        logger.info(f"Сообщение Пользователя: {input_message.content}")
         if status == "premium":
             chat_history = get_sql_history(user_id)
 
@@ -64,10 +66,10 @@ class MessageHandlerAgent:
             result = await self.workflow.ainvoke({"messages": messages})
             ai_message = result["messages"][-1]
             await chat_history.aadd_messages([input_message, ai_message])
+            logger.info(f"Сообщение ИИ: {ai_message.content}")
             return ai_message.content
         except Exception as e:
             raise e
-
 
 
 agent = MessageHandlerAgent()
