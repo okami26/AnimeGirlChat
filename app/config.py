@@ -10,6 +10,7 @@ class Settings(BaseSettings):
     OPENROUTER_API_KEY: str
     OPENROUTER_API_KEY2: str
     OPENROUTER_API_KEY3: str
+    OPENROUTER_API_KEY4: str
     REDIS_HOST: str
     REDIS_PORT: int
     REDIS_PASS: str
