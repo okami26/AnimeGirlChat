@@ -17,10 +17,17 @@ def get_giga_chat_llm(api_key=settings.GIGA_CHAT_API_KEY):
         verify_ssl_certs=False,
     )
 
-def get_openrouter_llm(model="google/gemini-2.5-flash-image-preview:free", api_key=settings.OPENROUTER_API_KEY3):
+def get_openrouter_llm(model="openrouter/sonoma-dusk-alpha", api_key=settings.OPENROUTER_API_KEY4):
     return ChatOpenAI(
         model=model,
         api_key=api_key,
         base_url="https://openrouter.ai/api/v1",
         temperature=0
+    )
+
+def get_lm_studio():
+    return ChatOpenAI(
+        base_url="http://localhost:1234/v1",
+        model="google/gemma-3-4b",
+        api_key="a"
     )
