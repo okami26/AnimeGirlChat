@@ -9,7 +9,7 @@ from fastapi.responses import FileResponse, StreamingResponse, JSONResponse
 from app.ai.agent import agent
 from app.ai.tts import tts, generate_tts
 from app.api.entities import UserRequest
-from app.db.db import get_history, get_user, create_user
+from app.db.db import get_history, get_user, create_user, update_user
 
 router = APIRouter(prefix="/api")
 
@@ -44,14 +44,29 @@ async def get_user_history(user_id: str):
 
     return history
 
-@router.post("/users")
-async def get_or_create_user(user_request: UserRequest):
+@router.post("/users/{user_id}")
+async def get_or_create_user(user_id: int):
 
-    user = await get_user(int(user_request.id))
+    user = await get_user(user_id)
 
     if not user:
 
-        user = await create_user(id=int(user_request.id), status="free", username="")
+        user = await create_user(id=user_id, status="free", username="")
 
     return user
+
+@router.post("/users/status/{user_id}")
+async def update_user_status(user_id: int):
+
+    user = await get_user(user_id)
+
+    if user.status == "free":
+
+        result = await update_user(user_id=user_id, status="premium")
+
+        print(result)
+    else:
+        result = await update_user(user_id=user_id, status="free")
+
+        print(result)
 
