@@ -6,6 +6,7 @@ from langchain_redis import RedisChatMessageHistory
 from sqlalchemy import Integer, func
 from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker, AsyncSession, AsyncAttrs
 from sqlalchemy.future import select
+from sqlalchemy import update
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 
 from app.config import settings
@@ -52,3 +53,15 @@ async def create_user(**fields):
         await session.refresh(new_user)
         return new_user
 
+async def update_user(user_id: int, **values):
+    async with async_session_maker() as session:
+        query = (
+            update(User)
+            .where(User.id == user_id)
+            .values(**values)
+            .execution_options(synchronize_session="fetch")
+        )
+        result = await session.execute(query)
+        await session.commit()
+
+        return result
