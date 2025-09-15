@@ -70,3 +70,13 @@ async def update_user_status(user_id: int):
 
         print(result)
 
+@router.post("/users/username/{user_id}")
+async def update_user_status(user_id: int, username: str):
+
+    user = await get_user(user_id)
+    if user:
+        result = await update_user(user_id=user_id, username=username)
+
+        print(result)
+
+
