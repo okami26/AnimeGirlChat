@@ -1,5 +1,6 @@
+// src/composables/useSendMessage.ts
 import { ref } from "vue";
-import { sendMessage, type MessageResponse } from "@/api";
+import { sendMessage, type MessageResponse } from "@/api/messages";
 import { playBase64Wav } from "@/utils/audio";
 
 export function useSendMessage() {
@@ -7,11 +8,11 @@ export function useSendMessage() {
   const error = ref<string | null>(null);
   const lastResponse = ref<MessageResponse | null>(null);
 
-  async function send(text: string) {
+  async function send(userId: string, text: string) {
     loading.value = true;
     error.value = null;
     try {
-      const res = await sendMessage(text);
+      const res = await sendMessage(userId, text);
       lastResponse.value = res;
 
       if (res.audio_base64) {

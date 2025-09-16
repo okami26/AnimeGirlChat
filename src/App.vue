@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import WebApp from '@twa-dev/sdk'
-// import BottomNavigation from '@/components/BottomNavigation.vue'
+import BottomNavigation from '@/components/BottomNavigation.vue'
 import { useTelegramViewport } from '@/composables/useTelegramViewport'
 
 function isMobile(): boolean {

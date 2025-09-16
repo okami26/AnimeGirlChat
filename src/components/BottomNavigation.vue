@@ -4,9 +4,9 @@ import { House, SquareUser, BookOpenCheck, Menu } from 'lucide-vue-next'
 
 <template>
   <nav
-    class="bottom-nav fixed bottom-0 left-0 right-0 bg-black/70 text-white border-t border-white/10"
+    class="bottom-nav fixed bottom-0 left-0 right-0 bg-black/70 text-white border-t border-white/5"
   >
-    <ul class="flex justify-around py-0.5">
+    <ul class="flex justify-around py-1">
       <li>
         <RouterLink
           to="/"
