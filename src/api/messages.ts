@@ -1,5 +1,3 @@
-// src/api/messages.ts
-
 export interface MessageResponse {
   message: string;       // ответ ИИ
   audio_base64: string;  // аудио в base64
@@ -15,21 +13,41 @@ export interface HistoryItem {
   avatar?: string;
 }
 
-const BASE = "https://5d42f4239538.ngrok-free.app";
+// ========= БАЗА =========
+const BASE = "https://c5b52c12450c.ngrok-free.app";
+const BASE_CLEAN = BASE.replace(/\/$/, "");
 
+const COMMON_HEADERS = {
+  'ngrok-skip-browser-warning': '1',
+  'Accept': 'application/json',
+} as const;
+
+async function readJsonStrict(res: Response) {
+  const ct = res.headers.get('content-type') || '';
+  const body = await res.text();
+  if (!ct.includes('application/json')) {
+    // Бросаем осмысленную ошибку — увидишь её в historyError
+    throw new Error(`Ожидали JSON, но пришло ${ct || 'unknown'}: ${body.slice(0, 160)}`);
+  }
+  return JSON.parse(body);
+}
+
+// ========= ОТПРАВКА СООБЩЕНИЯ =========
 /** POST: отправить сообщение */
 export async function sendMessage(userId: string, message: string) {
-  // ⚠️ если на бэке проверяется user_status, верни корректное значение
-  const params = new URLSearchParams({ message });
-  const url = `${BASE.replace(/\/$/, "")}/api/messages/${encodeURIComponent(userId)}?${params}`;
+  const params = new URLSearchParams({
+    message,
+    'ngrok-skip-browser-warning': '1', // важный флаг для ngrok
+  });
+  const url = `${BASE_CLEAN}/api/messages/${encodeURIComponent(userId)}?${params}`;
 
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort("timeout"), 120_000);
 
   try {
-    const res = await fetch(url, { method: "POST", signal: controller.signal });
+    const res = await fetch(url, { method: "POST", headers: COMMON_HEADERS, signal: controller.signal });
     if (!res.ok) throw new Error(`Ошибка запроса: ${res.status} ${res.statusText}`);
-    return (await res.json()) as MessageResponse;
+    return (await readJsonStrict(res)) as MessageResponse;
   } catch (e: any) {
     if (e?.name === "AbortError") {
       throw new Error("Превышен таймаут ожидания ответа (TTS долго генерится).");
@@ -40,19 +58,25 @@ export async function sendMessage(userId: string, message: string) {
   }
 }
 
+// ========= ИСТОРИЯ =========
+function mapRole(roleLike: string): HistoryItem['role'] {
+  if (roleLike === 'human') return 'user';
+  if (roleLike === 'ai') return 'assistant';
+  if (roleLike === 'user' || roleLike === 'assistant' || roleLike === 'system') return roleLike;
+  return 'assistant';
+}
+
 /** GET: получить историю сообщений для userId */
 export async function getHistory(userId: string): Promise<HistoryItem[]> {
-  const url = `${BASE.replace(/\/$/, "")}/api/messages/${encodeURIComponent(userId)}`;
-  const res = await fetch(url, { method: "GET" });
+  const url = `${BASE_CLEAN}/api/messages/${encodeURIComponent(userId)}?ngrok-skip-browser-warning=1`;
+  const res = await fetch(url, { method: "GET", headers: COMMON_HEADERS });
 
-  // Некоторые бэки возвращают 204 при пустой истории
   if (res.status === 204) return [];
-
   if (!res.ok) throw new Error(`Не удалось загрузить историю: ${res.status} ${res.statusText}`);
 
-  const data = await res.json();
+  const data = await readJsonStrict(res);
 
-  // Нормализация возможных форматов
+  // вытаскиваем массив
   let arr: unknown = data;
   if (data && typeof data === 'object') {
     if (Array.isArray((data as any).history)) arr = (data as any).history;
@@ -60,9 +84,34 @@ export async function getHistory(userId: string): Promise<HistoryItem[]> {
   }
   if (!Array.isArray(arr)) return [];
 
-  return arr as HistoryItem[];
+  // НОРМАЛИЗАЦИЯ: кортежи [text, role] -> HistoryItem
+  const normalized: HistoryItem[] = (arr as any[]).map((item) => {
+    if (Array.isArray(item)) {
+      const [text, roleLike] = item as [string, string];
+      return {
+        id: crypto.randomUUID(),
+        role: mapRole(String(roleLike || 'assistant')),
+        content: String(text ?? ''),
+      };
+    }
+    if (item && typeof item === 'object') {
+      const obj = item as any;
+      return {
+        id: obj.id ?? crypto.randomUUID(),
+        role: mapRole(String(obj.role ?? 'assistant')),
+        content: String(obj.content ?? ''),
+        created_at: obj.created_at,
+        name: obj.name,
+        avatar: obj.avatar,
+      };
+    }
+    return null as any;
+  }).filter(Boolean);
+
+  return normalized;
 }
 
+// ========= УТИЛИТА АУДИО =========
 /** Утилита: конвертация base64-аудио в blob-URL */
 export function audioBase64ToUrl(b64: string, mime: string = "audio/mpeg"): string {
   const pure = b64.includes(",") ? b64.split(",").pop()! : b64;
