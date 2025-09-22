@@ -1,6 +1,5 @@
 from langchain_core.chat_history import BaseChatMessageHistory
-from langchain_core.messages import HumanMessage, AIMessage
-from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
+from langchain_core.messages import HumanMessage
 from langgraph.graph import START, END
 from langgraph.graph import StateGraph, MessagesState
 from langchain_redis import RedisChatMessageHistory
@@ -10,7 +9,7 @@ from loguru import logger
 from app.ai.llm_init import get_openrouter_llm
 from app.db.db import async_engine
 from app.redis_db.redis_client import redis_client
-from app.ai.prompts.templates import prompt_template_alice, prompt_template_nora
+from app.ai.prompts.templates import prompt_template_alice
 
 def get_redis_history(session_id: str, time_history: int) -> BaseChatMessageHistory:
     return RedisChatMessageHistory(session_id, redis_client=redis_client, ttl=time_history)
@@ -42,7 +41,6 @@ class MessageHandlerAgent:
 
         prompt_template = prompt_template_alice
 
-
         try:
             prompt = await prompt_template.ainvoke(state)
             response = await self.llm.ainvoke(prompt)
@@ -51,23 +49,25 @@ class MessageHandlerAgent:
             raise e
 
 
-    async def classify(self, message: str, user_id: str, status: str) -> list:
+    async def generate_response(self, message: str, user_id: str, status: str) -> list:
 
         input_message = HumanMessage(content=message)
         logger.info(f"Сообщение Пользователя: {input_message.content}")
+
         if status == "premium":
             chat_history = get_sql_history(user_id)
-
         else:
             chat_history = get_redis_history(user_id, 3600)
 
         messages = await chat_history.aget_messages() + [input_message]
+
         try:
             result = await self.workflow.ainvoke({"messages": messages})
             ai_message = result["messages"][-1]
             await chat_history.aadd_messages([input_message, ai_message])
             logger.info(f"Сообщение ИИ: {ai_message.content}")
             return ai_message.content
+
         except Exception as e:
             raise e
 
