@@ -11,3 +11,9 @@ class User(Base):
     __tablename__ = "users"
     username: Mapped[str]
     status: Mapped[str]
+
+class Audio(Base):
+    __tablename__ = "audios"
+    session_id: Mapped[int]
+    message_id: Mapped[int]
+    audio: Mapped[str]
