@@ -11,10 +11,15 @@ const Subscribe = { template: '<div><h1>Подписка (заглушка)</h1>
 
 // const Menu = { template: '<div><h1>Меню (заглушка)</h1></div>' }
 
-const routes: RouteRecordRaw[] = [
-  { path: '/', redirect: '/input' }, // <--- редирект на input
-  { path: '/input', name: 'InputPage', component: InputPage },
-]
+// const routes: RouteRecordRaw[] = [
+//   { path: '/', redirect: '/input' }, // <--- редирект на input
+//   { path: '/input', name: 'InputPage', component: InputPage },
+// ]
+
+// const routes = [
+//   { path: '/', name: 'home', component: () => import('@/views/Home.vue') }, // если есть
+//   { path: '/chat', name: 'chat', component: () => import('@/views/ChatPanel.vue') },
+// ]
 
 // const routes: RouteRecordRaw[] = [
 //   { path: '/', redirect: '/test' },
@@ -22,13 +27,21 @@ const routes: RouteRecordRaw[] = [
 // ]
 
 // const routes = [
-//   { path: '/', component: Test },
-//   { path: '/catalog', component: Catalog },
-//   { path: '/tasks', component: Tasks },
-//   { path: '/menu', component: Menu },
-//   { path: '/tokens', component: Tokens},
-//   { path: '/subscribe', component: Subscribe}
+//   { path: '/', name: 'home', component: () => import('@/views/Home.vue') },
+//   { path: '/chat', name: 'chat', component: () => import('@/views/ChatPanel.vue') },
+//   { path: '/catalog', name: 'catalog', component: () => import('@/views/Catalog.vue') },
+//   { path: '/tasks', name: 'tasks', component: () => import('@/views/Tasks.vue') },
+//   { path: '/menu', name: 'menu', component: () => import('@/views/Menu.vue') },
 // ]
+const routes = [
+  // { path: '/', name: 'home', component: () => import('@/views/Home.vue') },
+  { path: '/chat', name: 'chat', component: () => import('@/views/ChatPanel.vue') },
+  { path: '/catalog', component: Catalog },
+  { path: '/tasks', component: Tasks },
+  { path: '/menu', component: Menu },
+  { path: '/tokens', component: Tokens},
+  { path: '/subscribe', component: Subscribe}
+]
 
 const router = createRouter({
   history: createWebHistory(),

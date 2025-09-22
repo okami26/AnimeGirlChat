@@ -1,19 +1,38 @@
-// src/composables/useTelegram.ts
-import WebApp from '@twa-dev/sdk';
+// src/composables/useTelegramUser.ts
+import { ref } from 'vue'
+import { useTelegram } from './useTelegram'
 
-export function useTelegram() {
-  // дерните это в onMounted компонента
-  const init = () => {
-    WebApp.ready();
-    WebApp.expand();
-  };
+export function useTelegramUser() {
+  const { WebApp } = useTelegram()
 
-  const getUserId = () => WebApp.initDataUnsafe?.user?.id ?? null;
+  const telegramUserId = ref<string | null>(null)
+  const userAvatar = ref<string | null>(null)
+  const userName = ref<string>('Вы')
+  const initData = ref<string>('')
 
-  // строка initData (нужна бэку для проверки подписи)
-  const getInitData = () => WebApp.initData;
+  function refreshOnce() {
+    const u = WebApp?.initDataUnsafe?.user
+    telegramUserId.value = u?.id ? String(u.id) : null
+    userAvatar.value = u?.photo_url ?? null
+    userName.value = [u?.first_name, u?.last_name].filter(Boolean).join(' ') || 'Вы'
+    initData.value = WebApp?.initData || ''
+  }
 
-  const isInTelegram = () => typeof WebApp !== 'undefined' && !!WebApp.platform;
+  /**
+   * Ждём, пока Telegram проставит user (до timeout мс).
+   * Если мы внутри Telegram, разумно ждать дольше.
+   */
+  async function waitForUser(timeout = 5000, interval = 50): Promise<boolean> {
+    const start = Date.now()
+    refreshOnce()
+    if (telegramUserId.value) return true
+    while (Date.now() - start < timeout) {
+      await new Promise(r => setTimeout(r, interval))
+      refreshOnce()
+      if (telegramUserId.value) return true
+    }
+    return !!telegramUserId.value
+  }
 
-  return { init, getUserId, getInitData, isInTelegram, WebApp };
+  return { telegramUserId, userAvatar, userName, initData, refreshOnce, waitForUser }
 }

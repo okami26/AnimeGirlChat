@@ -3,7 +3,6 @@ export interface MessageResponse {
   audio_base64: string;  // аудио в base64
 }
 
-// Формат одного сообщения из истории
 export interface HistoryItem {
   id?: string;
   role: 'user' | 'assistant' | 'system';
@@ -14,7 +13,7 @@ export interface HistoryItem {
 }
 
 // ========= БАЗА =========
-const BASE = "https://c5b52c12450c.ngrok-free.app";
+const BASE = (import.meta.env.VITE_API_BASE || "https://c5b52c12450c.ngrok-free.app");
 const BASE_CLEAN = BASE.replace(/\/$/, "");
 
 const COMMON_HEADERS = {
@@ -26,7 +25,6 @@ async function readJsonStrict(res: Response) {
   const ct = res.headers.get('content-type') || '';
   const body = await res.text();
   if (!ct.includes('application/json')) {
-    // Бросаем осмысленную ошибку — увидишь её в historyError
     throw new Error(`Ожидали JSON, но пришло ${ct || 'unknown'}: ${body.slice(0, 160)}`);
   }
   return JSON.parse(body);
@@ -34,18 +32,28 @@ async function readJsonStrict(res: Response) {
 
 // ========= ОТПРАВКА СООБЩЕНИЯ =========
 /** POST: отправить сообщение */
-export async function sendMessage(userId: string, message: string) {
+export async function sendMessage(
+  userId: string,
+  message: string,
+  opts?: { initData?: string }
+) {
   const params = new URLSearchParams({
     message,
-    'ngrok-skip-browser-warning': '1', // важный флаг для ngrok
+    'ngrok-skip-browser-warning': '1',
   });
+  if (opts?.initData) params.set('init_data', opts.initData);
+
   const url = `${BASE_CLEAN}/api/messages/${encodeURIComponent(userId)}?${params}`;
 
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort("timeout"), 120_000);
 
   try {
-    const res = await fetch(url, { method: "POST", headers: COMMON_HEADERS, signal: controller.signal });
+    const res = await fetch(url, {
+      method: "POST",
+      headers: COMMON_HEADERS,
+      signal: controller.signal
+    });
     if (!res.ok) throw new Error(`Ошибка запроса: ${res.status} ${res.statusText}`);
     return (await readJsonStrict(res)) as MessageResponse;
   } catch (e: any) {
@@ -66,9 +74,15 @@ function mapRole(roleLike: string): HistoryItem['role'] {
   return 'assistant';
 }
 
-/** GET: получить историю сообщений для userId */
-export async function getHistory(userId: string): Promise<HistoryItem[]> {
-  const url = `${BASE_CLEAN}/api/messages/${encodeURIComponent(userId)}?ngrok-skip-browser-warning=1`;
+/** GET: получить историю сообщений для userId (c опциональной подписью Telegram) */
+export async function getHistory(
+  userId: string,
+  opts?: { initData?: string }
+): Promise<HistoryItem[]> {
+  const params = new URLSearchParams({ 'ngrok-skip-browser-warning': '1' })
+  if (opts?.initData) params.set('init_data', opts.initData)
+
+  const url = `${BASE_CLEAN}/api/messages/${encodeURIComponent(userId)}?${params.toString()}`
   const res = await fetch(url, { method: "GET", headers: COMMON_HEADERS });
 
   if (res.status === 204) return [];
@@ -84,7 +98,7 @@ export async function getHistory(userId: string): Promise<HistoryItem[]> {
   }
   if (!Array.isArray(arr)) return [];
 
-  // НОРМАЛИЗАЦИЯ: кортежи [text, role] -> HistoryItem
+  // нормализация
   const normalized: HistoryItem[] = (arr as any[]).map((item) => {
     if (Array.isArray(item)) {
       const [text, roleLike] = item as [string, string];
@@ -109,16 +123,4 @@ export async function getHistory(userId: string): Promise<HistoryItem[]> {
   }).filter(Boolean);
 
   return normalized;
-}
-
-// ========= УТИЛИТА АУДИО =========
-/** Утилита: конвертация base64-аудио в blob-URL */
-export function audioBase64ToUrl(b64: string, mime: string = "audio/mpeg"): string {
-  const pure = b64.includes(",") ? b64.split(",").pop()! : b64;
-  const bin = atob(pure);
-  const len = bin.length;
-  const bytes = new Uint8Array(len);
-  for (let i = 0; i < len; i++) bytes[i] = bin.charCodeAt(i);
-  const blob = new Blob([bytes], { type: mime });
-  return URL.createObjectURL(blob);
 }
