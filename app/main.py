@@ -7,7 +7,7 @@ from fastapi import FastAPI, Request
 from loguru import logger
 
 from app.api.router import router
-from .db.create_db import create_users_table
+from .db.create_db import create_users_table, create_audios_table
 
 
 @asynccontextmanager
@@ -15,6 +15,7 @@ async def lifespan(app: FastAPI):
     logger.info("Бот запущен...")
     await start_bot()
     await create_users_table()
+    await create_audios_table()
     yield
     logger.info("Бот остановлен...")
     await stop_bot()
