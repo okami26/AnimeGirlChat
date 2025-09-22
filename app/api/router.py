@@ -1,15 +1,13 @@
 import asyncio
 import base64
 from concurrent.futures import ThreadPoolExecutor
-
-import loguru
-from fastapi import APIRouter
-from fastapi.responses import FileResponse, StreamingResponse, JSONResponse
+from loguru import logger
+from fastapi import APIRouter, HTTPException
+from fastapi.responses import JSONResponse
 
 from app.ai.agent import agent
-from app.ai.tts import tts, generate_tts
-from app.api.entities import UserRequest
-from app.db.db import get_history, get_user, create_user, update_user
+from app.ai.tts import tts_generator
+from app.db.db import get_history, get_user, create_user, update_user, get_last_message, create_audio
 
 router = APIRouter(prefix="/api")
 
@@ -17,66 +15,88 @@ tts_executor = ThreadPoolExecutor(max_workers=1)
 tts_lock = asyncio.Lock()
 
 @router.post("/messages/{user_id}")
-async def test(user_id: str, message: str):
+async def generate_message(user_id: str, message: str):
+    try:
+        user_status="premium"
+        message_ai = await agent.generate_response(message, user_id, status=user_status)
+        last = await get_last_message(int(user_id))
+        loop = asyncio.get_running_loop()
 
-    user_status="premium"
-    print(f"message: {message}")
-    message_ai = await agent.classify(message, user_id, status=user_status)
+        async with tts_lock:
+            audio_bytes = await loop.run_in_executor(
+                tts_executor, tts_generator.generate_tts, message_ai
+            )
 
-    loop = asyncio.get_running_loop()
+        audio_base64 = base64.b64encode(audio_bytes).decode('utf-8')
+        await create_audio(message_id=last[0], session_id=int(last[1]), audio=audio_base64)
 
-    async with tts_lock:
-        audio_bytes = await loop.run_in_executor(
-            tts_executor, generate_tts, message_ai
-        )
-
-    audio_base64 = base64.b64encode(audio_bytes).decode('utf-8')
-
-    return JSONResponse(content={
-        "message": message_ai,
-        "audio_base64": audio_base64
-    })
+        logger.info(f"Успешный ответ пользователю {user_id}")
+        return JSONResponse(content={
+            "message": message_ai,
+            "audio_base64": audio_base64
+        })
+    except Exception as e:
+        logger.error(f"Произошла ошибка при ответе пользователю {user_id}: {e}")
+        return None
 
 @router.get("/messages/{user_id}")
 async def get_user_history(user_id: str):
 
-    history = await get_history(user_id)
-
-    return history
+    try:
+        history = await get_history(user_id)
+        logger.info(f"Успешно получена история пользователя {user_id}")
+        return history
+    except Exception as e:
+        logger.error(f"Произошла ошибка при получении истории пользователя {user_id}: {e}")
+        return None
 
 @router.post("/users/{user_id}")
 async def get_or_create_user(user_id: int):
+    try:
+        user = await get_user(user_id)
 
-    user = await get_user(user_id)
+        if not user:
 
-    if not user:
+            user = await create_user(id=user_id, status="free", username="")
+        logger.info(f"Пользователь {user_id} успешно получен")
+        return user
 
-        user = await create_user(id=user_id, status="free", username="")
+    except Exception as e:
+        logger.error(f"Проищошла ошибка при получении пользоваетеля {user_id}: {e}")
+        return None
 
-    return user
 
 @router.post("/users/status/{user_id}")
 async def update_user_status(user_id: int):
+    try:
+        user = await get_user(user_id)
+        if not user:
+            raise HTTPException(status_code=404, detail="Пользователь не найден")
 
-    user = await get_user(user_id)
+        if user.status == "free":
+            await update_user(user_id=user_id, status="premium")
+            logger.info(f"Пользователь {user_id} успешно обновлен до premium")
+            return {"status": "updated", "new_status": "premium"}
+        else:
+            await update_user(user_id=user_id, status="free")
+            logger.info(f"Пользователь {user_id} успешно обновлен до free")
+            return {"status": "updated", "new_status": "free"}
+    except Exception as e:
+        logger.error(f"Произошла ошибка при изменении статуса пользователя {user_id}: {e}")
+        raise HTTPException(status_code=500, detail="Внутренняя ошибка сервера")
 
-    if user.status == "free":
-
-        result = await update_user(user_id=user_id, status="premium")
-
-        print(result)
-    else:
-        result = await update_user(user_id=user_id, status="free")
-
-        print(result)
 
 @router.post("/users/username/{user_id}")
-async def update_user_status(user_id: int, username: str):
+async def update_user_username(user_id: int, username: str):
+    try:
+        user = await get_user(user_id)
+        if not user:
+            raise HTTPException(status_code=404, detail="Пользователь не найден")
 
-    user = await get_user(user_id)
-    if user:
-        result = await update_user(user_id=user_id, username=username)
+        await update_user(user_id=user_id, username=username)
+        logger.info(f"Имя пользователя {user_id} успешно обновлено на {username}")
 
-        print(result)
-
-
+        return {"status": "updated", "user_id": user_id, "new_username": username}
+    except Exception as e:
+        logger.error(f"Произошла ошибка при обновлении имени пользователя {user_id}: {e}")
+        raise HTTPException(status_code=500, detail="Внутренняя ошибка сервера")
