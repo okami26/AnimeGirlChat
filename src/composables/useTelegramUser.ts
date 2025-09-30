@@ -21,7 +21,8 @@ export function useTelegramUser() {
   /**
    * Ждём, пока Telegram проставит user (до timeout мс).
    * Если мы внутри Telegram, разумно ждать дольше.
-   */
+  */
+ 
   async function waitForUser(timeout = 5000, interval = 50): Promise<boolean> {
     const start = Date.now()
     refreshOnce()

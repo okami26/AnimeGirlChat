@@ -22,20 +22,46 @@ export function uniqMessages(list: ChatMessage[]) {
 }
 
 export function mapHistory(items: any[]): ChatMessage[] {
-  const mapped = items.map((m:any) => {
+  const mapped = items.map((m: any) => {
     if (Array.isArray(m)) {
-      const [text, roleLike] = m as [unknown, unknown]
-      return { id: crypto.randomUUID(), role: mapRole(String(roleLike ?? 'assistant')), content: String(text ?? '') }
+      const [text, roleLike, audioMaybe] = m as [unknown, unknown, unknown]
+
+      const out: ChatMessage = {
+        id: crypto.randomUUID(),
+        role: mapRole(String(roleLike ?? 'assistant')),
+        content: String(text ?? ''),
+      }
+
+      // 3-й элемент: base64-строка или объект { audio_base64, audio_mime }
+      if (typeof audioMaybe === 'string' && audioMaybe.trim()) {
+        out.audio_base64 = audioMaybe
+        out.audio_mime = 'audio/wav'
+      } else if (audioMaybe && typeof audioMaybe === 'object') {
+        const a = audioMaybe as any
+        const base64 = a.audio_base64 ?? a.audio ?? ''
+        if (base64) out.audio_base64 = String(base64)
+        if (a.audio_mime) out.audio_mime = String(a.audio_mime)
+        else if (base64) out.audio_mime = 'audio/wav'
+      }
+
+      return out
     }
+
     if (m && typeof m === 'object') {
       return {
         id: m.id ?? crypto.randomUUID(),
         role: mapRole(String(m.role ?? 'assistant')),
         content: String(m.content ?? ''),
-        created_at: m.created_at, name: m.name, avatar: m.avatar,
+        created_at: m.created_at,
+        name: m.name,
+        avatar: m.avatar,
+        audio_base64: m.audio_base64 ?? m.audio ?? undefined,
+        audio_mime: m.audio_mime ?? undefined,
       }
     }
+
     return null
   }).filter(Boolean) as ChatMessage[]
+
   return sortByCreatedAt(mapped)
 }

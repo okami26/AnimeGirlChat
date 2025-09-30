@@ -11,6 +11,8 @@ export interface HistoryItem {
   created_at?: string
   name?: string
   avatar?: string
+  audio_base64?: string
+  audio_mime?: string
 }
 
 export interface ChatMessage extends HistoryItem {

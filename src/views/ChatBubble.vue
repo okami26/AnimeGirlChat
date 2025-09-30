@@ -14,73 +14,31 @@ const props = defineProps<{
 const playing = ref(false)
 let audioEl: HTMLAudioElement | null = null
 
-function playAudioOnce() {
-  if (!props.message.audio_base64) return
-  try {
-    // предпочитаем wav, если mime не передали — пробуем wav, затем mp3
-    const mime = (props.message as any).audio_mime || 'audio/wav'
-    audioEl = mime.includes('wav')
-      ? playBase64Wav(props.message.audio_base64)
-      : playBase64Audio(props.message.audio_base64, mime)
-
-    playing.value = true
-    audioEl.addEventListener('ended', () => { playing.value = false }, { once: true })
-    audioEl.addEventListener('pause', () => { playing.value = false })
-  } catch {
-    try {
-      audioEl = playBase64Audio(props.message.audio_base64, 'audio/mpeg')
-      playing.value = true
-      audioEl.addEventListener('ended', () => { playing.value = false }, { once: true })
-      audioEl.addEventListener('pause', () => { playing.value = false })
-    } catch {}
-  }
-}
-
-function stopAudio() {
-  if (audioEl) {
-    try { audioEl.pause() } catch {}
-    revokeObjectUrlFromAudio(audioEl)
-    audioEl = null
-  }
-  playing.value = false
-}
-
+function playAudioOnce() { /* как у тебя */ }
+function stopAudio() { /* как у тебя */ }
 onBeforeUnmount(() => stopAudio())
 
-function initials(name?: string) {
-  if (!name) return '??'
-  return name
-    .split(' ')
-    .filter(Boolean)
-    .slice(0, 2)
-    .map(s => s[0]?.toUpperCase())
-    .join('')
-}
+function initials(name?: string) { /* как у тебя */ }
 
 const avatar = computed(() => {
   const m = props.message
   if (m.avatar) return { src: m.avatar }
   if (m.role === 'user') {
-    return props.userAvatar
-      ? { src: props.userAvatar }
-      : { initials: initials(m.name || props.userName || 'Вы') }
+    return props.userAvatar ? { src: props.userAvatar } : { initials: initials(m.name || props.userName || 'Вы') }
   }
-  // assistant
-  return props.assistantAvatar
-    ? { src: props.assistantAvatar }
-    : { initials: 'AI' }
+  return props.assistantAvatar ? { src: props.assistantAvatar } : { initials: 'AI' }
 })
 </script>
 
 <template>
   <div
-    class="flex items-end mb-2"
+    class="flex items-start mb-2"
     :class="message.role === 'user' ? 'justify-end' : 'justify-start'"
   >
-    <!-- аватар -->
+    <!-- АВАТАР (всегда прижат по верху) -->
     <div
-      class="shrink-0 w-9 h-9 rounded-full overflow-hidden bg-gray-200 text-gray-700
-             flex items-center justify-center text-sm font-semibold select-none"
+      class="shrink-0 w-7.5 h-7.5 rounded-full overflow-hidden bg-gray-200 text-gray-700
+             flex items-center justify-center text-sm font-semibold select-none mt-0.5"
       :class="message.role === 'user' ? 'order-2 ml-2' : 'order-1 mr-2'"
     >
       <img
@@ -94,12 +52,13 @@ const avatar = computed(() => {
       <span v-else>{{ avatar.initials }}</span>
     </div>
 
-    <!-- бабл -->
+    <!-- БАБЛ (одинаково скруглён со всех сторон и ближе к аватару) -->
     <div
-      class="relative max-w-[75%] rounded-2xl px-4 py-2 shadow-sm leading-relaxed whitespace-pre-wrap break-words"
+      class="relative max-w-[75%] rounded-xl px-3.5 py-2 shadow-sm whitespace-pre-wrap break-words
+             translate-y-[1px] text-sm leading-snug"
       :class="message.role === 'user'
-        ? 'order-1 bg-blue-500 text-white rounded-br-md'
-        : 'order-2 bg-white/20 border-gray-200 rounded-bl-md'"
+        ? 'order-1 bg-pink-900 text-white'
+        : 'order-2 bg-white/10 border-gray-200'"
     >
       <span v-if="message.pending" class="inline-flex items-center gap-2">
         <span class="inline-block h-2 w-2 rounded-full bg-gray-300 animate-pulse"></span>
@@ -108,17 +67,17 @@ const avatar = computed(() => {
       </span>
       <span v-else>{{ message.content }}</span>
 
-      <!-- КНОПКА ПРОИГРЫВАНИЯ (в нижнем правом углу бабла) -->
+      <!-- КНОПКА ПРОИГРЫВАНИЯ (чуть меньше и ближе к краю) -->
       <button
         v-if="message.role === 'assistant' && message.audio_base64"
         type="button"
-        class="absolute -bottom-0 -right-0 h-5 w-5 rounded-full bg-black/70 text-white
+        class="absolute -bottom-0 -right-0 h-4 w-4 rounded-full bg-black/70 text-white
                flex items-center justify-center shadow-md hover:bg-black/80 active:scale-95
                focus:outline-none border border-white/20"
         :title="playing ? 'Остановить' : 'Воспроизвести'"
         @click="playing ? stopAudio() : playAudioOnce()"
       >
-        <AudioLines :size="12" class="opacity-90" />
+        <AudioLines :size="10" class="opacity-90" />
       </button>
     </div>
   </div>

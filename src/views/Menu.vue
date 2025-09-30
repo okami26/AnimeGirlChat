@@ -7,44 +7,58 @@ import {
   MessageCircleMore,
   TicketPercent,
 } from 'lucide-vue-next'
+import { computed, onMounted } from 'vue'
+import { useTelegramUser } from '@/composables/useTelegramUser'
+
+const tgUser = useTelegramUser()
+
+onMounted(() => {
+  // подтянем данные один раз при открытии меню
+  tgUser.refreshOnce()
+})
+
+const displayName = computed(() => tgUser.userName.value || 'Вы')
+const avatarUrl = computed(() => tgUser.userAvatar.value || '')
+
+function initials(name: string) {
+  return (
+    name
+      .split(' ')
+      .filter(Boolean)
+      .slice(0, 2)
+      .map((s) => s[0]?.toUpperCase())
+      .join('') || '??'
+  )
+}
 </script>
 
 <template>
-  <nav class="fixed top-1 left-0 right-0 z-50">
-    <div class="mx-auto max-w-md px-3 py-2">
-      <div class="grid grid-cols-2 gap-2">
-        <RouterLink
-          to="/tokens"
-          class="group block rounded-2xl bg-neutral-900/70 border border-white/5 px-4 py-3 text-white shadow-sm transition-colors duration-200 hover:border-white/20 active:scale-[0.99]"
-          active-class="ring-1 ring-white/30"
+  <div class="p-4">
+    <!-- Профиль -->
+    <div class="flex items-center gap-3 mb-6">
+      <!-- Аватар -->
+      <div class="relative">
+        <img
+          v-if="avatarUrl"
+          :src="avatarUrl"
+          :alt="displayName"
+          class="w-12 h-12 rounded-full object-cover border border-white/20 shadow"
+        />
+        <div
+          v-else
+          class="w-12 h-12 rounded-full bg-white/10 border border-white/20 grid place-items-center text-white font-semibold"
         >
-          <div class="flex flex-col items-start">
-            <!-- верх: иконка + число в ряд -->
-            <div class="flex items-start gap-1">
-              <PiggyBank class="w-4 h-4 mt-0.5 opacity-90" />
-              <span class="text-sm font-semibold">99999</span>
-            </div>
+          {{ initials(displayName) }}
+        </div>
+      </div>
 
-            <!-- низ: подпись -->
-            <div class="text-[12px] opacity-70">Ваши токены</div>
-          </div>
-        </RouterLink>
-
-        <RouterLink
-          to="/subscribe"
-          class="group block rounded-2xl bg-neutral-900/90 border border-white/10 px-4 py-3 text-white shadow-sm transition-colors duration-200 hover:border-white/20 active:scale-[0.99]"
-          active-class="ring-1 ring-white/30"
-        >
-          <div class="flex items-start gap-2">
-            <div class="leading-tight">
-              <div class="text-sm font-semibold">Подписка</div>
-              <div class="text-[12px] opacity-70">Купить</div>
-            </div>
-          </div>
-        </RouterLink>
+      <!-- Имя -->
+      <div class="min-w-0">
+        <div class="text-white font-semibold truncate">
+          {{ displayName }}
+        </div>
+        <div class="text-xs text-white/60">Профиль</div>
       </div>
     </div>
-  </nav>
+  </div>
 </template>
-
-<style scoped></style>

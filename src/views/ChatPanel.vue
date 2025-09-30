@@ -1,6 +1,6 @@
 <!-- src/views/ChatPanel.vue -->
 <script setup lang="ts">
-import { ref, nextTick, onMounted, watch } from 'vue'
+import { ref, nextTick, onMounted, watch, onBeforeUnmount } from 'vue'
 import { useSendMessage } from '@/composables/useSendMessage'
 import ChatBubble from '@/views/ChatBubble.vue'
 import { getHistory } from '@/api/messages'
@@ -9,10 +9,14 @@ import { mapHistory, sortByCreatedAt } from '@/utils/history'
 import { saveCache, readCache, migrateAnonCacheTo } from '@/utils/cache'
 import { useTelegram } from '@/composables/useTelegram'
 import { useTelegramUser } from '@/composables/useTelegramUser'
-import { ArrowUp } from 'lucide-vue-next'
+import { ArrowUp, Mic } from 'lucide-vue-next'
+
 
 const tgUser = useTelegramUser()
 const { init, isInTelegram } = useTelegram()
+
+const headerRef = ref<HTMLElement | null>(null)
+const headerH = ref(0)
 
 const userInput = ref<string>('')
 
@@ -23,7 +27,8 @@ const historyError = ref<string | null>(null)
 const { send, loading, error } = useSendMessage()
 const scrollWrapRef = ref<HTMLElement | null>(null)
 
-const assistantAvatar = ref<string | null>('/ai.png')
+const assistantAvatar = ref<string | null>('/girl.png')
+const assistantName = ref('Алиса')
 const activeUserId = ref<string>('')
 
 const LAST_UID_KEY = 'lastUserId'
@@ -31,6 +36,11 @@ const LAST_UID_KEY = 'lastUserId'
 const pendingResponse = ref(false) // есть ли сейчас «ожидание ответа»
 const elapsed = ref(0) // секунды с момента отправки
 let timerId: number | null = null
+
+function measureHeader() {
+  headerH.value = headerRef.value?.offsetHeight || 0
+}
+let ro: ResizeObserver | null = null
 
 function startTimer() {
   stopTimer()
@@ -58,6 +68,11 @@ function scrollToBottom(smooth = true) {
   const el = scrollWrapRef.value
   if (!el) return
   el.scrollTo({ top: el.scrollHeight, behavior: smooth ? 'smooth' : 'auto' })
+}
+
+function startVoiceInput() {
+  console.log('voice input: start (stub)')
+  // TODO: здесь включишь прослушивание и подставишь текст в userInput.value
 }
 
 async function safeFetchHistory(uid: string): Promise<ChatMessage[] | null> {
@@ -105,7 +120,7 @@ async function loadHistorySingle(uid: string) {
   }
 }
 
-const DEMO = false
+const DEMO = true
 
 function seedDemoMessages() {
   messages.value = [
@@ -211,8 +226,26 @@ async function demoReply(draftId: string, userText: string) {
   fillAssistantDraft(draftId, canned)
 }
 
+const tokenBalance = ref(0)
+
 onMounted(async () => {
   init()
+
+  if (isInTelegram()) {
+    document.documentElement.classList.add('in-telegram')
+  } else {
+    document.documentElement.classList.remove('in-telegram')
+  }
+  await nextTick()
+  measureHeader()
+
+  if (headerRef.value && 'ResizeObserver' in window) {
+    ro = new ResizeObserver(measureHeader)
+    ro.observe(headerRef.value)
+  }
+  window.addEventListener('resize', measureHeader)
+
+  tokenBalance.value = Math.floor(1000 + Math.random() * 9000)
 
   // ===== РАННИЙ ВЫХОД ДЛЯ ДЕМО =====
   if (DEMO) {
@@ -277,6 +310,11 @@ onMounted(async () => {
       await loadHistorySingle(activeUserId.value)
     }
   }
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', measureHeader)
+  ro?.disconnect()
 })
 
 watch(
@@ -408,12 +446,38 @@ async function handleSend() {
 </script>
 
 <template>
+  <header class="app-header">
+    <div class="app-header__bar"></div>
+
+    <div class="app-header__row">
+      <img
+        :src="assistantAvatar || '/girl.png'"
+        alt=""
+        class="w-9 h-9 rounded-full object-cover border border-white/10"
+      />
+      <div class="min-w-0 leading-tight">
+        <div class="text-white font-semibold truncate">
+          {{ assistantName }}
+        </div>
+        <div class="text-[12px] text-white/70">
+          Токены:
+          <span class="tabular-nums">
+            {{ tokenBalance.toLocaleString('ru-RU') }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </header>
+
   <div class="fixed inset-0 bg-transparent">
     <div class="mx-auto max-w-3xl h-[calc(100%-56px)] flex flex-col">
       <div
         ref="scrollWrapRef"
-        class="scroll-wrap flex-1 overflow-y-auto px-4 py-3 space-y-3 scroll-smooth bg-transparent"
-        :style="{ paddingBottom: 'calc(60px + var(--nav-h) + var(--safe-b))' }"
+        class="scroll-wrap no-scrollbar flex-1 overflow-y-auto px-3 py-3 space-y-3 scroll-smooth bg-transparent pt-header"
+        :style="{
+          /* добавили отступ сверху = высоте хедера */
+          paddingBottom: 'calc(60px + var(--nav-h) + var(--safe-b))',
+        }"
       >
         <template v-if="historyLoading">
           <div class="text-center text-gray-400 py-10 animate-pulse">
@@ -442,80 +506,80 @@ async function handleSend() {
         </template>
       </div>
 
-      <!-- БЫЛО: bottom-0. СТАЛО: footer-above-nav (сидит над навигацией и safe-area) -->
-      <footer class="fixed left-0 right-0 bg-transparent footer-above-nav z-40">
-        <div class="mx-auto max-w-3xl px-4 pb-3 pt-2">
-          <div class="relative flex items-center">
-            <input
-              v-model="userInput"
-              :disabled="pendingResponse"
-              type="text"
-              placeholder="Спросите что-нибудь..."
-              @keydown.enter.prevent="handleSend"
-              class="w-full px-4 py-2 pr-12 rounded-full border border-gray-300 bg-white/90 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 shadow-sm placeholder-gray-400 transition duration-200 disabled:opacity-60 disabled:cursor-not-allowed"
-            />
-            <button
-              type="button"
-              @click="handleSend"
-              :disabled="loading || pendingResponse || !userInput.trim()"
-              class="absolute right-2 z-10 flex items-center justify-center gap-1 min-w-[56px] h-9 px-2 rounded-full text-white transition disabled:opacity-50 disabled:cursor-not-allowed bg-blue-500 hover:bg-blue-600 active:scale-95"
-              aria-label="Отправить"
-            >
-              <template v-if="pendingResponse">
-                <svg
-                  class="animate-spin h-4 w-4"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                >
-                  <circle
-                    cx="12"
-                    cy="12"
-                    r="10"
-                    stroke-width="4"
-                    opacity="0.25"
-                  />
-                  <path d="M22 12a10 10 0 0 1-10 10" stroke-width="4" />
-                </svg>
-                <span class="tabular-nums text-sm">{{ fmt(elapsed) }}</span>
-              </template>
+<footer class="fixed left-0 right-0 bg-transparent footer-above-nav z-40">
+  <div class="mx-auto max-w-3xl px-4 pb-3 pt-2">
+    <div class="relative flex items-center rounded-full bg-white shadow-sm border border-gray-200">
 
-              <!-- Иначе, если есть текст — показываем ArrowUp -->
-              <template v-else-if="userInput.trim()">
-                <ArrowUp class="w-4 h-4" />
-              </template>
+      <!-- поле ввода -->
+      <input
+        v-model="userInput"
+        :disabled="pendingResponse"
+        type="text"
+        placeholder="Спросите что-нибудь…"
+        @keydown.enter.prevent="handleSend"
+        class="w-full h-11 rounded-full bg-transparent pl-4 pr-28 text-[15px] placeholder-gray-400 focus:outline-none disabled:opacity-60"
+      />
 
-              <!-- Иначе (нет текста) — «О»/пусто, чтобы не прыгала кнопка -->
-              <!-- <template v-else>
-                <span class="opacity-70">О</span>
-              </template>
-              <span v-if="!loading">О</span> -->
-              <!-- <svg
-                v-else
-                class="animate-spin h-4 w-4"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-              >
-                <circle
-                  cx="12"
-                  cy="12"
-                  r="10"
-                  stroke-width="4"
-                  opacity="0.25"
-                />
-                <path d="M22 12a10 10 0 0 1-10 10" stroke-width="4" />
-              </svg> -->
-            </button>
-          </div>
-        </div>
-      </footer>
+      <!-- таймер -->
+      <div
+        v-if="pendingResponse"
+        class="absolute right-24 top-1/2 -translate-y-1/2 text-xs tabular-nums text-gray-500"
+      >
+        {{ fmt(elapsed) }}
+      </div>
+
+      <!-- кнопка отправки -->
+      <button
+        type="button"
+        @click="handleSend"
+        :disabled="loading || pendingResponse || !userInput.trim()"
+        class="absolute right-12 top-1/2 -translate-y-1/2
+               flex items-center justify-center
+               h-8 w-8 rounded-full
+               bg-white border border-gray-300 shadow-sm
+               text-gray-700 transition
+               disabled:opacity-50 disabled:cursor-not-allowed"
+        aria-label="Отправить"
+      >
+        <svg
+          v-if="pendingResponse"
+          class="animate-spin h-4 w-4"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+        >
+          <circle cx="12" cy="12" r="10" stroke-width="4" opacity="0.25"/>
+          <path d="M22 12a10 10 0 0 1-10 10" stroke-width="4"/>
+        </svg>
+        <ArrowUp v-else class="w-4 h-4" />
+      </button>
+
+      <!-- кнопка микрофона -->
+      <button
+        type="button"
+        @click="startVoiceInput"
+        :disabled="pendingResponse"
+        class="absolute right-2 top-1/2 -translate-y-1/2
+               flex items-center justify-center
+               h-8 w-8 rounded-full
+               bg-white border border-gray-300 shadow-sm
+               text-gray-700 transition
+               disabled:opacity-50 disabled:cursor-not-allowed"
+        aria-label="Голосовой ввод"
+        title="Голосовой ввод"
+      >
+        <Mic class="w-4 h-4" />
+      </button>
+
+    </div>
+  </div>
+</footer>
     </div>
   </div>
 </template>
 
 <style>
-html,
+/* html,
 body {
   height: 100%;
 }
@@ -528,5 +592,5 @@ body {
 }
 .scroll-wrap::-webkit-scrollbar-track {
   background: transparent;
-}
+} */
 </style>

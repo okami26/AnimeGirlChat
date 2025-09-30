@@ -31,21 +31,21 @@ onMounted(async () => {
   WebApp.setHeaderColor('#111111')
   WebApp.setBackgroundColor('#111111')
 
-  try {
-    const raw =
-      import.meta.env.VITE_API_BASE || 'https://c5b52c12450c.ngrok-free.app'
-    const api = raw.replace(/\/$/, '')
-    const res = await fetch(`${api}/hello`, {
-      headers: {
-        'ngrok-skip-browser-warning': '1',
-        Accept: 'application/json',
-      },
-    })
-    if (!res.ok) throw new Error(`HTTP ${res.status} ${res.statusText}`)
-    data.value = await res.json()
-  } catch (e: any) {
-    loadError.value = e?.message ?? String(e)
-  }
+  // try {
+  //   const raw =
+  //     import.meta.env.VITE_API_BASE
+  //   const api = raw.replace(/\/$/, '')
+  //   const res = await fetch(`${api}/hello`, {
+  //     headers: {
+  //       'ngrok-skip-browser-warning': '1',
+  //       Accept: 'application/json',
+  //     },
+  //   })
+  //   if (!res.ok) throw new Error(`HTTP ${res.status} ${res.statusText}`)
+  //   data.value = await res.json()
+  // } catch (e: any) {
+  //   loadError.value = e?.message ?? String(e)
+  // }
 })
 </script>
 
