@@ -17,7 +17,7 @@ def get_giga_chat_llm(api_key=settings.GIGA_CHAT_API_KEY):
         verify_ssl_certs=False,
     )
 
-def get_openrouter_llm(model="x-ai/grok-4-fast:free", api_key=settings.OPENROUTER_API_KEY4):
+def get_openrouter_llm(model="deepseek/deepseek-chat-v3.1:free", api_key=settings.OPENROUTER_API_KEY4):
     return ChatOpenAI(
         model=model,
         api_key=api_key,
