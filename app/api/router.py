@@ -1,19 +1,12 @@
-import asyncio
-import base64
-from concurrent.futures import ThreadPoolExecutor
 from loguru import logger
 from fastapi import APIRouter, HTTPException, UploadFile
 from fastapi.responses import JSONResponse
 
 from app.ai.agent import agent
-# from app.ai.tts import tts_generator
 from app.api.utils import tts_request, stt_request
 from app.db.db import get_history, get_user, create_user, update_user, get_last_message, create_audio
 
 router = APIRouter(prefix="/api")
-
-# tts_executor = ThreadPoolExecutor(max_workers=1)
-# tts_lock = asyncio.Lock()
 
 @router.post("/messages/{user_id}")
 async def generate_message(user_id: str, message: str):
@@ -21,14 +14,6 @@ async def generate_message(user_id: str, message: str):
         user_status="premium"
         message_ai = await agent.generate_response(message, user_id, status=user_status)
         last = await get_last_message(int(user_id))
-        # loop = asyncio.get_running_loop()
-        #
-        # async with tts_lock:
-        #     audio_bytes = await loop.run_in_executor(
-        #         tts_executor, tts_generator.generate_tts, message_ai
-        #     )
-
-        # audio_base64 = base64.b64encode(audio_bytes).decode('utf-8')
 
         audio_base64 = await tts_request(message_ai)
         await create_audio(message_id=last[0], session_id=int(last[1]), audio=audio_base64)
@@ -57,7 +42,6 @@ async def get_user_history(user_id: str):
 async def get_or_create_user(user_id: int):
     try:
         user = await get_user(user_id)
-
         if not user:
 
             user = await create_user(id=user_id, status="free", username="")
