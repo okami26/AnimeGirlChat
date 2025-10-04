@@ -17,18 +17,12 @@ async def get_history(user_id: str):
         status = "premium"
         if status == "premium":
             history = SQLChatMessageHistory(session_id=user_id, async_mode=True, connection=async_engine)
-            history_messages = []
 
             texts = [message.content for message in await history.aget_messages()]
             roles = [message.type for message in await history.aget_messages()]
-            audio_history = [audio[0] for audio in await get_audio_history(int(user_id))]
-            audio_index = 0
-            for i in range(len(roles)):
-                message = [texts[i], roles[i]]
-                if roles[i] == "ai":
-                    message.append(audio_history[audio_index])
-                    audio_index+=1
-                history_messages.append(message)
+            audio_history = [message.audio for message in await history.aget_messages()]
+
+            history_messages = list(zip(texts, roles, audio_history))
 
         else:
             history = RedisChatMessageHistory(session_id=user_id)
