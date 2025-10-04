@@ -64,16 +64,16 @@ class MessageHandlerAgent:
         try:
             result = await self.workflow.ainvoke({"messages": messages})
             ai_message = result["messages"][-1]
-            await chat_history.aadd_messages([input_message, ai_message])
+            # await chat_history.aadd_messages([input_message, ai_message])
             logger.info(f"Сообщение ИИ: {ai_message.content}")
-            return ai_message.content
+            return [ai_message, input_message]
 
         except Exception as e:
             raise e
 
-    async def save_messages(self, ai_message, human_message, ai_audio=None, human_audio=None):
-        pass
-
+    async def save_messages(self, messages, user_id):
+        chat_history = get_sql_history(user_id)
+        await chat_history.aadd_messages([messages[1], messages[0]])
 
 agent = MessageHandlerAgent()
 
