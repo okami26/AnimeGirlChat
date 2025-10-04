@@ -71,6 +71,9 @@ class MessageHandlerAgent:
         except Exception as e:
             raise e
 
+    async def save_messages(self, ai_message, human_message, ai_audio=None, human_audio=None):
+        pass
+
 
 agent = MessageHandlerAgent()
 
