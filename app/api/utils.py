@@ -17,12 +17,9 @@ async def tts_request(text: str):
 
 
 async def stt_request(file: UploadFile):
-    # Читаем байты файла из UploadFile
-    file_bytes = await file.read()
 
-    # Формируем форму с файлом (multipart/form-data)
     form_data = aiohttp.FormData()
-    form_data.add_field('file', file_bytes, filename=file.filename, content_type=file.content_type)
+    form_data.add_field('file', file.file, filename=file.filename, content_type=file.content_type)
 
     async with aiohttp.ClientSession() as session:
         async with session.post(
