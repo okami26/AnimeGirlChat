@@ -1,5 +1,5 @@
 from loguru import logger
-from fastapi import APIRouter, HTTPException, UploadFile
+from fastapi import APIRouter, HTTPException, UploadFile, File
 from fastapi.responses import JSONResponse
 
 from app.ai.agent import agent
@@ -9,18 +9,27 @@ from app.db.db import get_history, get_user, create_user, update_user, get_last_
 router = APIRouter(prefix="/api")
 
 @router.post("/messages/{user_id}")
-async def generate_message(user_id: str, message: str):
+async def generate_message(user_id: str, message: str = None, user_audio: UploadFile = File(None)):
     try:
         user_status="premium"
-        message_ai = await agent.generate_response(message, user_id, status=user_status)
-        last = await get_last_message(int(user_id))
+        audio_user_base64 = None
 
-        audio_base64 = await tts_request(message_ai)
-        await create_audio(message_id=last[0], session_id=int(last[1]), audio=audio_base64)
+        if user_audio:
+            message, audio_user_base64 = await stt_request(user_audio)
+            print(message, audio_user_base64)
+
+        messages = await agent.generate_response(message, user_id, status=user_status)
+
+        messages[1].audio = audio_user_base64
+
+        audio_base64 = await tts_request(messages[0].content)
+        messages[0].audio = audio_base64
+
+        await agent.save_messages(messages, user_id)
 
         logger.info(f"Успешный ответ пользователю {user_id}")
         return JSONResponse(content={
-            "message": message_ai,
+            "message": messages[0].content,
             "audio_base64": audio_base64
         })
     except Exception as e:
